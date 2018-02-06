@@ -1,21 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- 
-	Liquibase Change Log 
-	http://www.liquibase.org/documentation/index.html
--->
+<!-- Liquibase Change Log http://www.liquibase.org/documentation/index.html -->
 
-<databaseChangeLog
-        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
-        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
-	
+
 	<changeSet id="1" author="tgelhar">
 		<createTable tableName="test">
-			<column name="test_column" type="varchar(35)"/>
+			<column name="test_column" type="varchar(35)" />
 		</createTable>
+	</changeSet>
+
+	<changeSet id="2" author="mariaOrofino">
+		<sql>DROP TABLE IF EXISTS PetType ;
+
+			CREATE TABLE IF NOT EXISTS
+			PetType (
+			petTypeId INT NOT NULL AUTO_INCREMENT,
+			petSpec VARCHAR(45)
+			NOT NULL,
+			dropDownInd TINYINT NULL,
+			PRIMARY KEY (petTypeId))
+			ENGINE =
+			InnoDB;
+		</sql>
+	</changeSet>
+	
+	<changeSet id="5" author="mariaOrofino">
+		<sql>DROP TABLE IF EXISTS Location ;
+
+CREATE TABLE IF NOT EXISTS Location (
+  locId INT NOT NULL AUTO_INCREMENT,
+  locLat DECIMAL(10,7) NULL,
+  locLong DECIMAL(10,7) NULL,
+  locName VARCHAR(45) NULL,
+  locDesc VARCHAR(280) NOT NULL,
+  locState CHAR(2) NOT NULL,
+  locCity VARCHAR(45) NULL,
+  locZip VARCHAR(5) NULL,
+  locInd CHAR(1) NOT NULL,
+  PRIMARY KEY (locId))
+ENGINE = InnoDB;
+		</sql>
+	</changeSet>
+	
+	<changeSet id="6" author="mariaOrofino">
+		<sql>DROP TABLE IF EXISTS User ;
+
+CREATE TABLE IF NOT EXISTS User (
+  userId INT NOT NULL AUTO_INCREMENT,
+  userFirstName VARCHAR(45) NOT NULL,
+  userLastName VARCHAR(45) NOT NULL,
+  userLogin VARCHAR(15) NOT NULL,
+  userState CHAR(2) NOT NULL,
+  userCity VARCHAR(45) NOT NULL,
+  userMobile CHAR(10) NOT NULL,
+  userEmail VARCHAR(60) NOT NULL,
+  userAltPhone CHAR(10) NULL,
+  userAltEmail VARCHAR(60) NULL,
+  userPassword VARCHAR(15) NULL,
+  userZip VARCHAR(5) NOT NULL,
+  PRIMARY KEY (userId))
+ENGINE = InnoDB;
+		</sql>
+	</changeSet>
+	
+	
+	
+	
+
+	<changeSet id="4" author="mariaOrofino">
+		<sql>DROP TABLE IF EXISTS Location ;
+			CREATE TABLE IF NOT EXISTS Location (
+			locId INT NOT NULL AUTO_INCREMENT,
+			locLat DECIMAL(10,7) NULL,
+			locLong DECIMAL(10,7) NULL,
+			locName VARCHAR(45) NULL,
+			locDesc VARCHAR(280) NOT NULL,
+			locState CHAR(2) NOT NULL,
+			locCity VARCHAR(45) NULL,
+			locZip VARCHAR(5) NULL,
+			locInd CHAR(1) NOT NULL,
+			PRIMARY KEY (locId))
+			ENGINE = InnoDB;
+		</sql>
+	</changeSet>
+	
+	<changeSet id="7" author="mariaOrofino">
+	<sql>DROP TABLE IF EXISTS PetStatus ;
+
+CREATE TABLE IF NOT EXISTS PetStatus (
+  petStatusId INT NOT NULL AUTO_INCREMENT,
+  petStatus VARCHAR(45) NOT NULL,
+  PRIMARY KEY (petStatusId))
+ENGINE = InnoDB;</sql>
 	</changeSet>
 
 </databaseChangeLog>
