@@ -14,7 +14,7 @@
 	</changeSet>
 
 	<changeSet id="2" author="mariaOrofino">
-		<sql>DROP TABLE IF EXISTS PetType ;
+		<sql>
 
 			CREATE TABLE IF NOT EXISTS
 			PetType (
@@ -27,75 +27,135 @@
 			InnoDB;
 		</sql>
 	</changeSet>
-	
+
 	<changeSet id="5" author="mariaOrofino">
-		<sql>DROP TABLE IF EXISTS Location ;
+		<sql>
 
-CREATE TABLE IF NOT EXISTS Location (
-  locId INT NOT NULL AUTO_INCREMENT,
-  locLat DECIMAL(10,7) NULL,
-  locLong DECIMAL(10,7) NULL,
-  locName VARCHAR(45) NULL,
-  locDesc VARCHAR(280) NOT NULL,
-  locState CHAR(2) NOT NULL,
-  locCity VARCHAR(45) NULL,
-  locZip VARCHAR(5) NULL,
-  locInd CHAR(1) NOT NULL,
-  PRIMARY KEY (locId))
-ENGINE = InnoDB;
-		</sql>
-	</changeSet>
-	
-	<changeSet id="6" author="mariaOrofino">
-		<sql>DROP TABLE IF EXISTS User ;
-
-CREATE TABLE IF NOT EXISTS User (
-  userId INT NOT NULL AUTO_INCREMENT,
-  userFirstName VARCHAR(45) NOT NULL,
-  userLastName VARCHAR(45) NOT NULL,
-  userLogin VARCHAR(15) NOT NULL,
-  userState CHAR(2) NOT NULL,
-  userCity VARCHAR(45) NOT NULL,
-  userMobile CHAR(10) NOT NULL,
-  userEmail VARCHAR(60) NOT NULL,
-  userAltPhone CHAR(10) NULL,
-  userAltEmail VARCHAR(60) NULL,
-  userPassword VARCHAR(15) NULL,
-  userZip VARCHAR(5) NOT NULL,
-  PRIMARY KEY (userId))
-ENGINE = InnoDB;
-		</sql>
-	</changeSet>
-	
-	
-	
-	
-
-	<changeSet id="4" author="mariaOrofino">
-		<sql>DROP TABLE IF EXISTS Location ;
-			CREATE TABLE IF NOT EXISTS Location (
+			CREATE TABLE IF NOT EXISTS
+			Location (
 			locId INT NOT NULL AUTO_INCREMENT,
-			locLat DECIMAL(10,7) NULL,
+			locLat DECIMAL(10,7)
+			NULL,
 			locLong DECIMAL(10,7) NULL,
 			locName VARCHAR(45) NULL,
-			locDesc VARCHAR(280) NOT NULL,
+			locDesc
+			VARCHAR(280) NOT NULL,
 			locState CHAR(2) NOT NULL,
-			locCity VARCHAR(45) NULL,
+			locCity VARCHAR(45)
+			NULL,
 			locZip VARCHAR(5) NULL,
 			locInd CHAR(1) NOT NULL,
-			PRIMARY KEY (locId))
+			PRIMARY KEY
+			(locId))
 			ENGINE = InnoDB;
 		</sql>
 	</changeSet>
-	
-	<changeSet id="7" author="mariaOrofino">
-	<sql>DROP TABLE IF EXISTS PetStatus ;
 
-CREATE TABLE IF NOT EXISTS PetStatus (
-  petStatusId INT NOT NULL AUTO_INCREMENT,
-  petStatus VARCHAR(45) NOT NULL,
-  PRIMARY KEY (petStatusId))
-ENGINE = InnoDB;</sql>
+	<changeSet id="6" author="mariaOrofino">
+		<sql>
+
+			CREATE TABLE IF NOT EXISTS User (
+			userId INT NOT NULL AUTO_INCREMENT,
+			userFirstName VARCHAR(45) NOT
+			NULL,
+			userLastName VARCHAR(45) NOT NULL,
+			userLogin VARCHAR(15) NOT
+			NULL,
+			userState CHAR(2) NOT NULL,
+			userCity VARCHAR(45) NOT NULL,
+			userMobile CHAR(10) NOT NULL,
+			userEmail VARCHAR(60) NOT NULL,
+			userAltPhone CHAR(10) NULL,
+			userAltEmail VARCHAR(60) NULL,
+			userPassword VARCHAR(15) NULL,
+			userZip VARCHAR(5) NOT NULL,
+			PRIMARY KEY
+			(userId))
+			ENGINE = InnoDB;
+		</sql>
 	</changeSet>
+
+
+
+
+
+	<changeSet id="4" author="mariaOrofino">
+		<sql>
+			CREATE TABLE IF NOT EXISTS
+			Location (
+			locId INT NOT NULL AUTO_INCREMENT,
+			locLat DECIMAL(10,7)
+			NULL,
+			locLong DECIMAL(10,7) NULL,
+			locName VARCHAR(45) NULL,
+			locDesc
+			VARCHAR(280) NOT NULL,
+			locState CHAR(2) NOT NULL,
+			locCity VARCHAR(45)
+			NULL,
+			locZip VARCHAR(5) NULL,
+			locInd CHAR(1) NOT NULL,
+			PRIMARY KEY
+			(locId))
+			ENGINE = InnoDB;
+		</sql>
+	</changeSet>
+
+	<changeSet id="7" author="mariaOrofino">
+		<sql>
+
+			CREATE TABLE IF NOT EXISTS
+			PetStatus (
+			petStatusId INT NOT NULL AUTO_INCREMENT,
+			petStatus
+			VARCHAR(45) NOT NULL,
+			PRIMARY KEY (petStatusId))
+			ENGINE = InnoDB;
+		</sql>
+	</changeSet>
+
+	<changeSet id="8" author="mariaOrofino">
+		<sql>
+			DROP TABLE IF EXISTS Pet ;
+
+			CREATE TABLE IF NOT EXISTS Pet (
+			 petId INT NOT NULL AUTO_INCREMENT,
+  petName VARCHAR(45) NULL,
+  petChipTag VARCHAR(45) NULL,
+  petRabiesTag VARCHAR(45) NULL,
+  petDesc VARCHAR(280) NOT NULL,
+  petBreed VARCHAR(45) NULL,
+  petSize VARCHAR(45) NOT NULL,
+  petColor VARCHAR(45) NOT NULL,
+  petImgUrl VARCHAR(100) NULL,
+  petCreateDate DATE NULL,
+  petModifiedDate DATE NULL,
+  petLostDate DATE NULL,
+  petFoundDate DATE NULL,
+  petSightedDate DATE NULL,
+  PRIMARY KEY (petId),
+  petStatusId INT,
+  petTypeId INT,
+  UNIQUE INDEX petChipTag_UNIQUE (petChipTag ASC),
+  UNIQUE INDEX petRabiesTag_UNIQUE (petRabiesTag ASC),
+  
+			)
+			ENGINE = InnoDB;
+		</sql>
+	</changeSet>
+<changeSet id="10" author="mariaOrofino">
+<sql>
+
+CREATE TABLE IF NOT EXISTS Pet_has_User (
+  petId INT NOT NULL,
+  petStatusId INT NOT NULL,
+  userId INT NOT NULL,
+  
+  
+ENGINE = InnoDB;
+
+</sql>
+</changeSet>
+
 
 </databaseChangeLog>
