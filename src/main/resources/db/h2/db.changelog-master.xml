@@ -8,52 +8,48 @@
         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
 	<changeSet id="1" author="tgelhar">
-		<createTable tableName="test">
-			<column name="test_column" type="varchar(35)" />
-		</createTable>
+		<sql>
+			DROP SCHEMA IF EXISTS PCH;
+			CREATE SCHEMA PCH;
+		</sql>
 	</changeSet>
 
 	<changeSet id="2" author="mariaOrofino">
 		<sql>
-
-			CREATE TABLE IF NOT EXISTS
-			PetType (
-			petTypeId INT NOT NULL AUTO_INCREMENT,
-			petSpec VARCHAR(45)
-			NOT NULL,
-			dropDownInd TINYINT NULL,
-			PRIMARY KEY (petTypeId))
-			ENGINE =
-			InnoDB;
+			CREATE TABLE IF NOT EXISTS PCH.PETTYPE 
+			(
+				pettypeid INT NOT NULL AUTO_INCREMENT,
+				petspec VARCHAR(45)	NOT NULL,
+				dropdownind INT NULL,
+				PRIMARY KEY (pettypeid)
+			)
 		</sql>
 	</changeSet>
 
 	<changeSet id="5" author="mariaOrofino">
 		<sql>
-
-			CREATE TABLE IF NOT EXISTS
-			Location (
-			locId INT NOT NULL AUTO_INCREMENT,
-			locLat DECIMAL(10,7)
-			NULL,
-			locLong DECIMAL(10,7) NULL,
-			locName VARCHAR(45) NULL,
-			locDesc
-			VARCHAR(280) NOT NULL,
-			locState CHAR(2) NOT NULL,
-			locCity VARCHAR(45)
-			NULL,
-			locZip VARCHAR(5) NULL,
-			locInd CHAR(1) NOT NULL,
-			PRIMARY KEY
-			(locId))
-			ENGINE = InnoDB;
+			CREATE TABLE IF NOT EXISTS Location 
+			(
+				locId INT NOT NULL AUTO_INCREMENT,
+				locLat DECIMAL(10,7)
+				NULL,
+				locLong DECIMAL(10,7) NULL,
+				locName VARCHAR(45) NULL,
+				locDesc
+				VARCHAR(280) NOT NULL,
+				locState CHAR(2) NOT NULL,
+				locCity VARCHAR(45)
+				NULL,
+				locZip VARCHAR(5) NULL,
+				locInd CHAR(1) NOT NULL,
+				PRIMARY KEY
+				(locId)
+			)
 		</sql>
 	</changeSet>
 
 	<changeSet id="6" author="mariaOrofino">
 		<sql>
-
 			CREATE TABLE IF NOT EXISTS User (
 			userId INT NOT NULL AUTO_INCREMENT,
 			userFirstName VARCHAR(45) NOT
@@ -74,11 +70,7 @@
 			ENGINE = InnoDB;
 		</sql>
 	</changeSet>
-
-
-
-
-
+	
 	<changeSet id="4" author="mariaOrofino">
 		<sql>
 			CREATE TABLE IF NOT EXISTS
@@ -95,56 +87,44 @@
 			NULL,
 			locZip VARCHAR(5) NULL,
 			locInd CHAR(1) NOT NULL,
-			PRIMARY KEY
-			(locId))
-			ENGINE = InnoDB;
+			PRIMARY KEY (locId)
+			)
 		</sql>
 	</changeSet>
 
 	<changeSet id="7" author="mariaOrofino">
 		<sql>
-
-			CREATE TABLE IF NOT EXISTS
-			PetStatus (
+			CREATE TABLE IF NOT EXISTS PetStatus 
+			(
 			petStatusId INT NOT NULL AUTO_INCREMENT,
 			petStatus
 			VARCHAR(45) NOT NULL,
-			PRIMARY KEY (petStatusId))
-			ENGINE = InnoDB;
+			PRIMARY KEY (petStatusId)
+			)
 		</sql>
 	</changeSet>
 
 	<changeSet id="8" author="mariaOrofino">
 		<sql>
-			DROP TABLE IF EXISTS Pet ;
-
-			CREATE TABLE IF NOT EXISTS Pet (
-			 petId INT NOT NULL AUTO_INCREMENT,
-  petName VARCHAR(45) NULL,
-  petChipTag VARCHAR(45) NULL,
-  petRabiesTag VARCHAR(45) NULL,
-  petDesc VARCHAR(280) NOT NULL,
-  petBreed VARCHAR(45) NULL,
-  petSize VARCHAR(45) NOT NULL,
-  petColor VARCHAR(45) NOT NULL,
-  petImgUrl VARCHAR(100) NULL,
-  petCreateDate DATE NULL,
-  petModifiedDate DATE NULL,
-  petLostDate DATE NULL,
-  petFoundDate DATE NULL,
-  petSightedDate DATE NULL,
-  PRIMARY KEY (petId),
-  petStatusId INT,
-  petTypeId INT,
-  UNIQUE INDEX petChipTag_UNIQUE (petChipTag ASC),
-  UNIQUE INDEX petRabiesTag_UNIQUE (petRabiesTag ASC),
-  foreign key (petTypeId) REFERENCES petType(petTypeId),
-  foreign key (petStatusId) REFERENCES petStatus(petStatusId)
+			CREATE TABLE IF NOT EXISTS pch.pet 
+			(
+				petId INT NOT NULL AUTO_INCREMENT,
+				petName VARCHAR(45) NULL,
+				petTypeId INT,
+				PRIMARY KEY (petId)
 			)
-			ENGINE = InnoDB;
 		</sql>
 	</changeSet>
-
+	<changeSet id="10" author="mariaOrofino">
+		<sql>
+			CREATE TABLE IF NOT EXISTS Pet_has_User 
+			(
+			  petId INT NOT NULL,
+			  petStatusId INT NOT NULL,
+			  userId INT NOT NULL
+			)
+		</sql>
+	</changeSet>
 
 
 </databaseChangeLog>
