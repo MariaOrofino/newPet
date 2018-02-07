@@ -8,10 +8,15 @@ package com.lmig.ci.pch.domain;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 /**
  * @author n0263892
@@ -19,7 +24,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(schema = "PCH", name = "LOCATION")
-public class Loc {
+public class Location {
 	
 	@Id
 	@GeneratedValue
@@ -28,9 +33,11 @@ public class Loc {
     private BigDecimal locLong;
 	private String locName;
     private String locDesc;
+    @Column(columnDefinition="CHAR(2)")
     private String locState;
     private String locCity;
     private String locZip;
+    @Column(columnDefinition="CHAR(1)")
     private String locInd;
 	/**
 	 * @return the locId
@@ -141,83 +148,19 @@ public class Loc {
 		this.locInd = locInd;
 	}
 	
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
+	@Override
+	public String toString() {
+		return ReflectionToStringBuilder.reflectionToString(this);
+	}
+
+	@Override
+	public boolean equals(java.lang.Object o) {
+		return EqualsBuilder.reflectionEquals(this, o);
+	}
+
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((locCity == null) ? 0 : locCity.hashCode());
-		result = prime * result + ((locDesc == null) ? 0 : locDesc.hashCode());
-		result = prime * result + ((locId == null) ? 0 : locId.hashCode());
-		result = prime * result + ((locInd == null) ? 0 : locInd.hashCode());
-		result = prime * result + ((locLat == null) ? 0 : locLat.hashCode());
-		result = prime * result + ((locLong == null) ? 0 : locLong.hashCode());
-		result = prime * result + ((locName == null) ? 0 : locName.hashCode());
-		result = prime * result + ((locState == null) ? 0 : locState.hashCode());
-		result = prime * result + ((locZip == null) ? 0 : locZip.hashCode());
-		return result;
-	}
-	
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Loc other = (Loc) obj;
-		if (locCity == null) {
-			if (other.locCity != null)
-				return false;
-		} else if (!locCity.equals(other.locCity))
-			return false;
-		if (locDesc == null) {
-			if (other.locDesc != null)
-				return false;
-		} else if (!locDesc.equals(other.locDesc))
-			return false;
-		if (locId == null) {
-			if (other.locId != null)
-				return false;
-		} else if (!locId.equals(other.locId))
-			return false;
-		if (locInd == null) {
-			if (other.locInd != null)
-				return false;
-		} else if (!locInd.equals(other.locInd))
-			return false;
-		if (locLat == null) {
-			if (other.locLat != null)
-				return false;
-		} else if (!locLat.equals(other.locLat))
-			return false;
-		if (locLong == null) {
-			if (other.locLong != null)
-				return false;
-		} else if (!locLong.equals(other.locLong))
-			return false;
-		if (locName == null) {
-			if (other.locName != null)
-				return false;
-		} else if (!locName.equals(other.locName))
-			return false;
-		if (locState == null) {
-			if (other.locState != null)
-				return false;
-		} else if (!locState.equals(other.locState))
-			return false;
-		if (locZip == null) {
-			if (other.locZip != null)
-				return false;
-		} else if (!locZip.equals(other.locZip))
-			return false;
-		return true;
+		return HashCodeBuilder.reflectionHashCode(this);
 	}
 
 }

@@ -26,90 +26,69 @@ public class PetType {
 
 	@Id
 	@GeneratedValue
-	private Integer petTypeId;    
-	private String petSpecies;    
-    private Integer other;
-    
-    
+	private Integer petTypeId;
+	private String petSpecies;
+	@Column(name = "DROP_DOWN_IND")
+	private Integer other;
+
 	/**
 	 * @return the petTypeId
 	 */
 	public Integer getPetTypeId() {
 		return petTypeId;
 	}
+
 	/**
-	 * @param petTypeId the petTypeId to set
+	 * @param petTypeId
+	 *            the petTypeId to set
 	 */
 	public void setPetTypeId(Integer petTypeId) {
 		this.petTypeId = petTypeId;
 	}
+
 	/**
 	 * @return the petSpecies
 	 */
 	public String getPetSpecies() {
 		return petSpecies;
 	}
+
 	/**
-	 * @param petSpecies the petSpecies to set
+	 * @param petSpecies
+	 *            the petSpecies to set
 	 */
 	public void setPetSpecies(String petSpecies) {
 		this.petSpecies = petSpecies;
 	}
+
 	/**
 	 * @return the other
 	 */
 	public Integer getOther() {
 		return other;
 	}
+
 	/**
-	 * @param other the other to set
+	 * @param other
+	 *            the other to set
 	 */
 	public void setOther(Integer other) {
 		this.other = other;
 	}
-	
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
+
+	@Override
+	public String toString() {
+		return ReflectionToStringBuilder.reflectionToString(this);
+	}
+
+	@Override
+	public boolean equals(java.lang.Object o) {
+		return EqualsBuilder.reflectionEquals(this, o);
+	}
+
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((other == null) ? 0 : other.hashCode());
-		result = prime * result + ((petSpecies == null) ? 0 : petSpecies.hashCode());
-		result = prime * result + ((petTypeId == null) ? 0 : petTypeId.hashCode());
-		return result;
+		return HashCodeBuilder.reflectionHashCode(this);
 	}
-	
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		PetType other = (PetType) obj;
-		if (this.other == null) {
-			if (other.other != null)
-				return false;
-		} else if (!this.other.equals(other.other))
-			return false;
-		if (petSpecies == null) {
-			if (other.petSpecies != null)
-				return false;
-		} else if (!petSpecies.equals(other.petSpecies))
-			return false;
-		if (petTypeId == null) {
-			if (other.petTypeId != null)
-				return false;
-		} else if (!petTypeId.equals(other.petTypeId))
-			return false;
-		return true;
-	}    
 
-	
 }

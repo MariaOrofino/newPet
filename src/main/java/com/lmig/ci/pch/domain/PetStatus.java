@@ -11,6 +11,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+
 /**
  * @author n0263892
  *
@@ -50,40 +54,18 @@ public class PetStatus {
 		this.petStatus = petStatus;
 	}
 	
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
+	@Override
+	public String toString() {
+		return ReflectionToStringBuilder.reflectionToString(this);
+	}
+
+	@Override
+	public boolean equals(java.lang.Object o) {
+		return EqualsBuilder.reflectionEquals(this, o);
+	}
+
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((petStatus == null) ? 0 : petStatus.hashCode());
-		result = prime * result + ((petStatusId == null) ? 0 : petStatusId.hashCode());
-		return result;
+		return HashCodeBuilder.reflectionHashCode(this);
 	}
-	
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		PetStatus other = (PetStatus) obj;
-		if (petStatus == null) {
-			if (other.petStatus != null)
-				return false;
-		} else if (!petStatus.equals(other.petStatus))
-			return false;
-		if (petStatusId == null) {
-			if (other.petStatusId != null)
-				return false;
-		} else if (!petStatusId.equals(other.petStatusId))
-			return false;
-		return true;
-	} 
 }
