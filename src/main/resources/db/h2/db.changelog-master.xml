@@ -18,114 +18,101 @@
 		<sql>
 			CREATE TABLE IF NOT EXISTS PCH.PET_TYPE
 			(
-			Pet_TYPE_id INT NOT NULL AUTO_INCREMENT,
-			Pet_spec VARCHAR(45) NOT NULL,
-			drop_down_ind INT NULL,
-			PRIMARY KEY (Pet_TYPE_id)
+			PET_TYPE_ID INT NOT NULL AUTO_INCREMENT,
+			PET_SPECIES VARCHAR(45) NOT NULL,
+			DROP_DOWN_IND INT NULL,
+			PRIMARY KEY (PET_TYPE_ID)
 			)
 		</sql>
 	</changeSet>
 
 	<changeSet id="5" author="mariaOrofino">
 		<sql>
-			CREATE TABLE IF NOT EXISTS PCH.Location
+			CREATE TABLE IF NOT EXISTS PCH.LOCATION
 			(
-			Loc_Id INT NOT NULL AUTO_INCREMENT,
-			Loc_Lat DECIMAL(10,7)
-			NULL,
-			Loc_Long DECIMAL(10,7) NULL,
-			Loc_Name VARCHAR(45) NULL,
-			Loc_Desc
-			VARCHAR(280) NOT NULL,
-			Loc_State CHAR(2) NOT NULL,
-			Loc_City VARCHAR(45)
-			NULL,
-			Loc_Zip VARCHAR(5) NULL,
-			loc_Ind CHAR(1) NOT NULL,
-			PRIMARY KEY
-			(Loc_Id)
+			LOC_ID INT NOT NULL AUTO_INCREMENT,
+			LOC_LAT DECIMAL(10,7) NULL,
+			LOC_LONG DECIMAL(10,7) NULL,
+			LOC_NAME VARCHAR(45) NULL,
+			LOC_DESC VARCHAR(280) NOT NULL,
+			LOC_STATE CHAR(2) NOT NULL,
+			LOC_CITY VARCHAR(45)NULL,
+			LOC_ZIP VARCHAR(5) NULL,
+			LOC_IND CHAR(1) NOT NULL,
+			PRIMARY KEY (LOC_Id)
 			)
 		</sql>
 	</changeSet>
 
 	<changeSet id="6" author="mariaOrofino">
 		<sql>
-			CREATE TABLE IF NOT EXISTS PCH.User (
-			User_Id INT NOT NULL
-			AUTO_INCREMENT,
-			User_First_Name VARCHAR(45) NOT
-			NULL,
-			User_Last_Name
-			VARCHAR(45) NOT NULL,
-			User_Login VARCHAR(15) NOT
-			NULL,
-			User_State CHAR(2)
-			NOT NULL,
-			User_City VARCHAR(45) NOT NULL,
-			User_Mobile CHAR(10) NOT NULL,
-			User_Email VARCHAR(60) NOT NULL,
-			User_Alt_Phone CHAR(10) NULL,
-			User_Alt_Email VARCHAR(60) NULL,
-			User_Password VARCHAR(15) NULL,
-			User_Zip
-			VARCHAR(5) NOT NULL,
-			PRIMARY KEY
-			(User_Id))
-			ENGINE = InnoDB;
-		</sql>
-	</changeSet>
-
-	
-
-	<changeSet id="7" author="mariaOrofino">
-		<sql>
-			CREATE TABLE IF NOT EXISTS PCH.Pet_Status
+			CREATE TABLE IF NOT EXISTS PCH.USER 
 			(
-			Pet_Status_Id INT NOT NULL AUTO_INCREMENT,
-			Pet_Status
-			VARCHAR(45) NOT
-			NULL,
-			PRIMARY KEY (Pet_Status_Id)
+			USER_ID INT NOT NULL AUTO_INCREMENT,
+			USER_FIRST_NAME VARCHAR(45) NOT	NULL,
+			USER_LAST_NAME VARCHAR(45) NOT NULL,
+			USER_LOGIN VARCHAR(15) NOT NULL,
+			USER_STATE CHAR(2) NOT NULL,
+			USER_CITY VARCHAR(45) NOT NULL,
+			USER_MOBILE CHAR(10) NOT NULL,
+			USER_EMAIL VARCHAR(60) NOT NULL,
+			USER_ALT_PHONE CHAR(10) NULL,
+			USER_ALT_EMAIL VARCHAR(60) NULL,
+			USER_PASSWORD VARCHAR(15) NULL,
+			USER_ZIP VARCHAR(5) NOT NULL,
+			PRIMARY KEY (USER_ID)
+			)
+		</sql>
+	</changeSet>	
+
+	<changeSet id="7" author="mari	aOrofino">
+		<sql>
+			CREATE TABLE IF NOT EXISTS PCH.PET_STATUS
+			(
+			PET_STATUS_ID INT NOT NULL AUTO_INCREMENT,
+			PET_STATUS VARCHAR(45) NOT NULL,
+			PRIMARY KEY (PET_STATUS_ID)
 			)
 		</sql>
 	</changeSet>
 
 	<changeSet id="8" author="mariaOrofino">
 		<sql>
-			CREATE TABLE IF NOT EXISTS pch.Pet
+			CREATE TABLE IF NOT EXISTS PCH.PET
 			(
-			Pet_Id INT NOT NULL AUTO_INCREMENT,
-			Pet_Name VARCHAR(45) NULL,
-			Pet_Chip_Tag VARCHAR(45) NULL,
-			Pet_Rabies_Tag VARCHAR(45) NULL,
-			Pet_Desc VARCHAR(280) NOT NULL,
-			Pet_Breed VARCHAR(45) NULL,
-			Pet_Size VARCHAR(45) NOT NULL,
-			Pet_Color VARCHAR(45) NOT NULL,
-			Pet_Img_Url VARCHAR(100) NULL,
-			Pet_Create_Date DATE NULL,
-			Pet_Modified_Date DATE NULL,
-			Pet_Lost_Date DATE NULL,
-			Pet_Found_Date DATE NULL,
-			Pet_Sighted_Date DATE NULL,
-			UNIQUE INDEX Pet_Chip_Tag_UNIQUE (Pet_Chip_Tag ASC),
-			UNIQUE INDEX Pet_Rabies_Tag_UNIQUE (Pet_Rabies_Tag ASC),
-<!--             foreign key (Pet_Status_Id) references Pet_Status(Pet_Status_Id), -->
-<!--             foreign key (Pet_TYPE_id) references Pet_TYPE(Pet_TYPE_id), -->
-			PRIMARY KEY (Pet_Id)
+			PET_ID INT NOT NULL AUTO_INCREMENT,
+			PET_NAME VARCHAR(45) NULL,
+			PET_CHIP_TAG VARCHAR(45) NULL,
+			PET_RABIES_TAG VARCHAR(45) NULL,
+			PET_DESC VARCHAR(280) NOT NULL,
+			PET_BREED VARCHAR(45) NULL,
+			PET_SIZE VARCHAR(45) NOT NULL,
+			PET_COLOR VARCHAR(45) NOT NULL,
+			PET_IMG_URL VARCHAR(100) NULL,
+			PET_TYPE_ID INT NOT NULL,
+<!-- 			PET_CREATE_DATE TIMESTAMP NULL,
+ --><!-- 			PET_MODIFIED_DATE DATE NULL,
+			PET_LOST_DATE DATE NULL,
+			PET_FOUND_DATE DATE NULL,
+			PET_SIGHTED_DATE DATE NULL, -->
+			UNIQUE INDEX PET_CHIP_TAG_UNIQUE (PET_CHIP_TAG ASC),
+			UNIQUE INDEX PET_RABIES_TAG_UNIQUE (PET_RABIES_TAG ASC),
+<!--             foreign key (PET_STATUS_ID) references PET_STATUS(PET_STATUS_ID), -->
+<!--             foreign key (PET_TYPE_ID) references PET_TYPE(PET_TYPE_ID), -->
+			PRIMARY KEY (PET_ID)
 			)
 		</sql>
 	</changeSet>
+	
 	<changeSet id="10" author="mariaOrofino">
 		<sql>
-			CREATE TABLE IF NOT EXISTS PCH.Pet_has_User_
+			CREATE TABLE IF NOT EXISTS PCH.PET_HAS_USER
 			(
-			Pet_Id INT NOT NULL,
-			Pet_Status_Id INT NOT NULL,
-			User_Id INT NOT NULL
+			PET_ID INT NOT NULL,
+			PET_STATUS_ID INT NOT NULL,
+			USER_ID INT NOT NULL
 			)
 		</sql>
 	</changeSet>
-
 
 </databaseChangeLog>

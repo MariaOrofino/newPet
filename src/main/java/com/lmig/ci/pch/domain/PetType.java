@@ -26,51 +26,69 @@ public class PetType {
 
 	@Id
 	@GeneratedValue
-	@Column(name = "pettypeid")
 	private Integer petTypeId;
-    
-	@Column(name = "petspec")
 	private String petSpecies;
-    
-	@Column(name = "dropdownind")
-    private Integer other;
+	@Column(name = "DROP_DOWN_IND")
+	private Integer other;
 
+	/**
+	 * @return the petTypeId
+	 */
 	public Integer getPetTypeId() {
 		return petTypeId;
 	}
 
+	/**
+	 * @param petTypeId
+	 *            the petTypeId to set
+	 */
 	public void setPetTypeId(Integer petTypeId) {
 		this.petTypeId = petTypeId;
 	}
 
+	/**
+	 * @return the petSpecies
+	 */
 	public String getPetSpecies() {
 		return petSpecies;
 	}
 
+	/**
+	 * @param petSpecies
+	 *            the petSpecies to set
+	 */
 	public void setPetSpecies(String petSpecies) {
 		this.petSpecies = petSpecies;
 	}
 
+	/**
+	 * @return the other
+	 */
 	public Integer getOther() {
 		return other;
 	}
 
+	/**
+	 * @param other
+	 *            the other to set
+	 */
 	public void setOther(Integer other) {
 		this.other = other;
 	}
 
-    @Override
-    public String toString() {
-        return ReflectionToStringBuilder.reflectionToString(this);
-    }
+	@Override
+	public String toString() {
+		return ReflectionToStringBuilder.reflectionToString(this);
+	}
 
-    @Override
-    public boolean equals(java.lang.Object o) {
-        return EqualsBuilder.reflectionEquals(this, o);
-    }
+	@Override
+	public boolean equals(java.lang.Object o) {
+		return EqualsBuilder.reflectionEquals(this, o);
+	}
 
-    @Override
-    public int hashCode() {
-        return HashCodeBuilder.reflectionHashCode(this);
-    }
+	@Override
+	public int hashCode() {
+		return HashCodeBuilder.reflectionHashCode(this);
+	}
+
 }
