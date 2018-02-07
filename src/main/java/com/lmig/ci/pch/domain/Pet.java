@@ -6,6 +6,8 @@
 
 package com.lmig.ci.pch.domain;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -16,69 +18,92 @@ import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.apache.catalina.User;
+
+import antlr.collections.List;
+
 /**
  * @author n0129947
  *
  */
 @Entity
-@Table(schema = "PCH", name = "PET")
+@Table(schema = "PCH", name = "Pet")
 public class Pet {
 
 	@Id
 	@GeneratedValue
-	@Column(name = "petid")
-    private Integer petId;
+	@Column(name = "Pet_id")
+    private Integer Pet_id;
 
-	@Column(name = "petname")
-    private String petName;
-//    private String petDesc;
-//    private String petChipTag;
-//    private String PetRabiesTag;
-//    private String petBreed;
-//    private String petSize;
-//    private String petColor;
-//    private String petImgURL;
-//    private LocalDate petCreateDate;
-//    private LocalDate petModifiedDate;
-//    private LocalDate petLostDate;
-//    private LocalDate petFoundDate;
-//    private LocalDate petSightedDate;
-//    private User user;
-//    private List<Loc> loc;
-//    private PetStatus petStatus;
-	@Column(name = "pettypeid")
-	private Integer petTypeId;
+	@Column(name = "Pet_name")
+    private String Pet_Name;
+	@Column(name = "Pet_Desc")
+    private String Pet_Desc;
+	@Column(name = "Pet_Chip_Tag")
+	private String Pet_Chip_Tag;
+	@Column(name = "Pet_Rabies_Tag")
+    private String Pet_Rabies_Tag;
+	@Column(name = "Pet_Breed")
+    private String Pet_Breed;
+	@Column(name = "Pet_Size")
+    private String Pet_Size;
+	@Column(name = "Pet_Color")
+    private String Pet_Color;
+	@Column(name = "Pet_Img_URL")
+    private String Pet_Img_URL;
+	@Column(name = "Pet_Create_Date")
+    private LocalDate Pet_Create_Date;
+	@Column(name = "Pet_Modified_Date")
+    private LocalDate Pet_Modified_Date;
+	@Column(name = "Pet_Lost_Date")
+    private LocalDate Pet_Lost_Date;
+	@Column(name = "Pet_Found_Date")
+    private LocalDate Pet_Found_Date;
+	@Column(name = "Pet_Sighted_Date")
+    private LocalDate Pet_Sighted_Date;
+	@Column(name = "user")
+    private User user;
+	@Column(name = "loc")
+    private List loc;
+	@Column(name = "Pet_Status")
+    private PetStatus Pet_Status;
 	
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "pettypeid", insertable=false, updatable=false)
-    private PetType petType;
+	
+//	@OneToOne(fetch = FetchType.LAZY)
+//	@JoinColumn(name = "pettype_id_id", insertable=false, updatable=false)
+//    private pettype_id pettype_id;
+
+	
+	}
     
     //TODO finish but start this off simple
+	
+	
     
-    
-	public Integer getPetId() {
-		return petId;
+   /* 
+	public Integer getPet_id() {
+		return Pet_id;
 	}
-	public void setPetId(Integer petId) {
-		this.petId = petId;
+	public void setPet_id(Integer Pet_id) {
+		this.Pet_id = Pet_id;
 	}
 	public String getPetName() {
-		return petName;
+		return PetName;
 	}
-	public void setPetName(String petName) {
-		this.petName = petName;
+	public void setPetName(String PetName) {
+		this.PetName = PetName;
 	}
 	public Integer getPetTypeId() {
-		return petTypeId;
+		return PetTypeId;
 	}
-	public void setPetTypeId(Integer petTypeId) {
-		this.petTypeId = petTypeId;
+	public void setPetTypeId(Integer PetTypeId) {
+		this.PetTypeId = PetTypeId;
 	}
 	public PetType getPetType() {
-		return petType;
+		return PetType;
 	}
-	public void setPetType(PetType petType) {
-		this.petType = petType;
+	public void setPetType(PetType PetType) {
+		this.PetType = PetType;
 	}
+*/
 
-}
