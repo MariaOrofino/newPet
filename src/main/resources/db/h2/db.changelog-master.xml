@@ -16,7 +16,7 @@
 
 	<changeSet id="2" author="mariaOrofino">
 		<sql>
-			CREATE TABLE IF NOT EXISTS PCH.Pet_Type
+			CREATE TABLE IF NOT EXISTS PCH.PET_TYPE
 			(
 			Pet_TYPE_id INT NOT NULL AUTO_INCREMENT,
 			Pet_spec VARCHAR(45) NOT NULL,
