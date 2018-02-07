@@ -98,7 +98,6 @@
 			Pet_Name VARCHAR(45) NULL,
 			Pet_Chip_Tag VARCHAR(45) NULL,
 			Pet_Rabies_Tag VARCHAR(45) NULL,
-			
 			Pet_Desc VARCHAR(280) NOT NULL,
 			Pet_Breed VARCHAR(45) NULL,
 			Pet_Size VARCHAR(45) NOT NULL,
@@ -111,8 +110,8 @@
 			Pet_Sighted_Date DATE NULL,
 			UNIQUE INDEX Pet_Chip_Tag_UNIQUE (Pet_Chip_Tag ASC),
 			UNIQUE INDEX Pet_Rabies_Tag_UNIQUE (Pet_Rabies_Tag ASC),
-            <!-- foreign key (Pet_StatusId) references Pet_Status(Pet_StatusId), -->
-            foreign key (Pet_TYPE_id) references Pet_TYPE(Pet_TYPE_id),
+<!--             foreign key (Pet_Status_Id) references Pet_Status(Pet_Status_Id), -->
+<!--             foreign key (Pet_TYPE_id) references Pet_TYPE(Pet_TYPE_id), -->
 			PRIMARY KEY (Pet_Id)
 			)
 		</sql>
