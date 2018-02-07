@@ -21,7 +21,7 @@ import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
  *
  */
 @Entity
-@Table(schema = "PCH", name = "PETTYPE")
+@Table(schema = "PCH", name = "PET_TYPE")
 public class PetType {
 
 	@Id
