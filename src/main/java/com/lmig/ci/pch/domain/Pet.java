@@ -44,6 +44,7 @@ public class Pet {
     private String petBreed;
     private String petSize;
     private String petColor;
+    
 	@Column(name = "PET_IMG_URL")
     private String petImgUrl;
 //    private LocalDateTime petCreateDate;

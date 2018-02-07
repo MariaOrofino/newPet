@@ -27,7 +27,10 @@ public class PetType {
 	@Id
 	@GeneratedValue
 	private Integer petTypeId;
+	
+	@Column(name = "PET_SPEC")
 	private String petSpecies;
+	
 	@Column(name = "DROP_DOWN_IND")
 	private Integer other;
 

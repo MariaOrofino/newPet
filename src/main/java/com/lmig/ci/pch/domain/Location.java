@@ -33,12 +33,15 @@ public class Location {
     private BigDecimal locLong;
 	private String locName;
     private String locDesc;
+    
     @Column(columnDefinition="CHAR(2)")
     private String locState;
     private String locCity;
     private String locZip;
+    
     @Column(columnDefinition="CHAR(1)")
     private String locInd;
+    
 	/**
 	 * @return the locId
 	 */
