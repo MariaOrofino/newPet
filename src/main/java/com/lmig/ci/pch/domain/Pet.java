@@ -7,7 +7,6 @@
 package com.lmig.ci.pch.domain;
 
 import java.time.LocalDate;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -17,9 +16,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
 import org.apache.catalina.User;
-
 import antlr.collections.List;
 
 /**
@@ -27,226 +24,210 @@ import antlr.collections.List;
  *
  */
 @Entity
-@Table(schema = "PCH", name = "Pet")
+@Table(schema = "PCH", name = "PET")
 public class Pet {
 
 	@Id
 	@GeneratedValue
-	@Column(name = "Pet_id")
-    private Integer Pet_id;
-
-	@Column(name = "Pet_name")
-    private String Pet_Name;
-	@Column(name = "Pet_Desc")
-    private String Pet_Desc;
-	@Column(name = "Pet_Chip_Tag")
-	private String Pet_Chip_Tag;
-	@Column(name = "Pet_Rabies_Tag")
-    private String Pet_Rabies_Tag;
-	@Column(name = "Pet_Breed")
-    private String Pet_Breed;
-	@Column(name = "Pet_Size")
-    private String Pet_Size;
-	@Column(name = "Pet_Color")
-    private String Pet_Color;
-	@Column(name = "Pet_Img_URL")
-    private String Pet_Img_URL;
-	@Column(name = "Pet_Create_Date")
-    private LocalDate Pet_Create_Date;
-	@Column(name = "Pet_Modified_Date")
-    private LocalDate Pet_Modified_Date;
-	@Column(name = "Pet_Lost_Date")
-    private LocalDate Pet_Lost_Date;
-	@Column(name = "Pet_Found_Date")
-    private LocalDate Pet_Found_Date;
-	@Column(name = "Pet_Sighted_Date")
-    private LocalDate Pet_Sighted_Date;
-	@Column(name = "user")
+//	@Column(name = "petID")    if not using JPA you would need this to reference your DB
+    private Integer petId;
+    private String petName;
+    private String petDesc;
+	private String petChipTag;
+    private String petRabiesTag;
+    private String petBreed;
+    private String petSize;
+    private String petColor;
+    private String petImgURL;
+    private LocalDate petCreateDate;
+    private LocalDate petModifiedDate;
+    private LocalDate petLostDate;
+    private LocalDate petFoundDate;
+    private LocalDate petSightedDate;
     private User user;
-	@Column(name = "loc")
     private List loc;
-	
-	
-	
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "Pet_type_id", insertable=false, updatable=false)
-    private PetType Pet_Type;
-	
-	
-	@JoinColumn(name = "Pet_Status_id", insertable=false, updatable=false)
-    private PetStatus Pet_Status;
-
-	
-	
+    
+    
+//	@OneToOne(fetch = FetchType.LAZY)
+//	@JoinColumn(name = "PET_TYPE_ID", insertable=false, updatable=false)
+//    private PetType petType;	
+//	
+//	@JoinColumn(name = "PET_STATUS_ID", insertable=false, updatable=false)
+//    private PetStatus petStatus;	
     
     //TODO finish but start this off simple
 	/**
-	 * @return the pet_id
+	 * @return the petId
 	 */
-	public Integer getPet_id() {
-		return Pet_id;
+    
+    
+	/**
+	 * @return the petId
+	 */
+	public Integer getPetId() {
+		return petId;
 	}
 	/**
-	 * @param pet_id the pet_id to set
+	 * @param petId the petId to set
 	 */
-	public void setPet_id(Integer pet_id) {
-		Pet_id = pet_id;
+	public void setPetId(Integer petId) {
+		this.petId = petId;
 	}
 	/**
-	 * @return the pet_Name
+	 * @return the petName
 	 */
-	public String getPet_Name() {
-		return Pet_Name;
+	public String getPetName() {
+		return petName;
 	}
 	/**
-	 * @param pet_Name the pet_Name to set
+	 * @param petName the petName to set
 	 */
-	public void setPet_Name(String pet_Name) {
-		Pet_Name = pet_Name;
+	public void setPetName(String petName) {
+		this.petName = petName;
 	}
 	/**
-	 * @return the pet_Desc
+	 * @return the petDesc
 	 */
-	public String getPet_Desc() {
-		return Pet_Desc;
+	public String getPetDesc() {
+		return petDesc;
 	}
 	/**
-	 * @param pet_Desc the pet_Desc to set
+	 * @param petDesc the petDesc to set
 	 */
-	public void setPet_Desc(String pet_Desc) {
-		Pet_Desc = pet_Desc;
+	public void setPetDesc(String petDesc) {
+		this.petDesc = petDesc;
 	}
 	/**
-	 * @return the pet_Chip_Tag
+	 * @return the petChipTag
 	 */
-	public String getPet_Chip_Tag() {
-		return Pet_Chip_Tag;
+	public String getPetChipTag() {
+		return petChipTag;
 	}
 	/**
-	 * @param pet_Chip_Tag the pet_Chip_Tag to set
+	 * @param petChipTag the petChipTag to set
 	 */
-	public void setPet_Chip_Tag(String pet_Chip_Tag) {
-		Pet_Chip_Tag = pet_Chip_Tag;
+	public void setPetChipTag(String petChipTag) {
+		this.petChipTag = petChipTag;
 	}
 	/**
-	 * @return the pet_Rabies_Tag
+	 * @return the petRabiesTag
 	 */
-	public String getPet_Rabies_Tag() {
-		return Pet_Rabies_Tag;
+	public String getPetRabiesTag() {
+		return petRabiesTag;
 	}
 	/**
-	 * @param pet_Rabies_Tag the pet_Rabies_Tag to set
+	 * @param petRabiesTag the petRabiesTag to set
 	 */
-	public void setPet_Rabies_Tag(String pet_Rabies_Tag) {
-		Pet_Rabies_Tag = pet_Rabies_Tag;
+	public void setPetRabiesTag(String petRabiesTag) {
+		this.petRabiesTag = petRabiesTag;
 	}
 	/**
-	 * @return the pet_Breed
+	 * @return the petBreed
 	 */
-	public String getPet_Breed() {
-		return Pet_Breed;
+	public String getPetBreed() {
+		return petBreed;
 	}
 	/**
-	 * @param pet_Breed the pet_Breed to set
+	 * @param petBreed the petBreed to set
 	 */
-	public void setPet_Breed(String pet_Breed) {
-		Pet_Breed = pet_Breed;
+	public void setPetBreed(String petBreed) {
+		this.petBreed = petBreed;
 	}
 	/**
-	 * @return the pet_Size
+	 * @return the petSize
 	 */
-	public String getPet_Size() {
-		return Pet_Size;
+	public String getPetSize() {
+		return petSize;
 	}
 	/**
-	 * @param pet_Size the pet_Size to set
+	 * @param petSize the petSize to set
 	 */
-	public void setPet_Size(String pet_Size) {
-		Pet_Size = pet_Size;
+	public void setPetSize(String petSize) {
+		this.petSize = petSize;
 	}
 	/**
-	 * @return the pet_Color
+	 * @return the petColor
 	 */
-	public String getPet_Color() {
-		return Pet_Color;
+	public String getPetColor() {
+		return petColor;
 	}
 	/**
-	 * @param pet_Color the pet_Color to set
+	 * @param petColor the petColor to set
 	 */
-	public void setPet_Color(String pet_Color) {
-		Pet_Color = pet_Color;
+	public void setPetColor(String petColor) {
+		this.petColor = petColor;
 	}
 	/**
-	 * @return the pet_Img_URL
+	 * @return the petImgURL
 	 */
-	public String getPet_Img_URL() {
-		return Pet_Img_URL;
+	public String getPetImgURL() {
+		return petImgURL;
 	}
 	/**
-	 * @param pet_Img_URL the pet_Img_URL to set
+	 * @param petImgURL the petImgURL to set
 	 */
-	public void setPet_Img_URL(String pet_Img_URL) {
-		Pet_Img_URL = pet_Img_URL;
+	public void setPetImgURL(String petImgURL) {
+		this.petImgURL = petImgURL;
 	}
 	/**
-	 * @return the pet_Create_Date
+	 * @return the petCreateDate
 	 */
-	public LocalDate getPet_Create_Date() {
-		return Pet_Create_Date;
+	public LocalDate getPetCreateDate() {
+		return petCreateDate;
 	}
 	/**
-	 * @param pet_Create_Date the pet_Create_Date to set
+	 * @param petCreateDate the petCreateDate to set
 	 */
-	public void setPet_Create_Date(LocalDate pet_Create_Date) {
-		Pet_Create_Date = pet_Create_Date;
+	public void setPetCreateDate(LocalDate petCreateDate) {
+		this.petCreateDate = petCreateDate;
 	}
 	/**
-	 * @return the pet_Modified_Date
+	 * @return the petModifiedDate
 	 */
-	public LocalDate getPet_Modified_Date() {
-		return Pet_Modified_Date;
+	public LocalDate getPetModifiedDate() {
+		return petModifiedDate;
 	}
 	/**
-	 * @param pet_Modified_Date the pet_Modified_Date to set
+	 * @param petModifiedDate the petModifiedDate to set
 	 */
-	public void setPet_Modified_Date(LocalDate pet_Modified_Date) {
-		Pet_Modified_Date = pet_Modified_Date;
+	public void setPetModifiedDate(LocalDate petModifiedDate) {
+		this.petModifiedDate = petModifiedDate;
 	}
 	/**
-	 * @return the pet_Lost_Date
+	 * @return the petLostDate
 	 */
-	public LocalDate getPet_Lost_Date() {
-		return Pet_Lost_Date;
+	public LocalDate getPetLostDate() {
+		return petLostDate;
 	}
 	/**
-	 * @param pet_Lost_Date the pet_Lost_Date to set
+	 * @param petLostDate the petLostDate to set
 	 */
-	public void setPet_Lost_Date(LocalDate pet_Lost_Date) {
-		Pet_Lost_Date = pet_Lost_Date;
+	public void setPetLostDate(LocalDate petLostDate) {
+		this.petLostDate = petLostDate;
 	}
 	/**
-	 * @return the pet_Found_Date
+	 * @return the petFoundDate
 	 */
-	public LocalDate getPet_Found_Date() {
-		return Pet_Found_Date;
+	public LocalDate getPetFoundDate() {
+		return petFoundDate;
 	}
 	/**
-	 * @param pet_Found_Date the pet_Found_Date to set
+	 * @param petFoundDate the petFoundDate to set
 	 */
-	public void setPet_Found_Date(LocalDate pet_Found_Date) {
-		Pet_Found_Date = pet_Found_Date;
+	public void setPetFoundDate(LocalDate petFoundDate) {
+		this.petFoundDate = petFoundDate;
 	}
 	/**
-	 * @return the pet_Sighted_Date
+	 * @return the petSightedDate
 	 */
-	public LocalDate getPet_Sighted_Date() {
-		return Pet_Sighted_Date;
+	public LocalDate getPetSightedDate() {
+		return petSightedDate;
 	}
 	/**
-	 * @param pet_Sighted_Date the pet_Sighted_Date to set
+	 * @param petSightedDate the petSightedDate to set
 	 */
-	public void setPet_Sighted_Date(LocalDate pet_Sighted_Date) {
-		Pet_Sighted_Date = pet_Sighted_Date;
+	public void setPetSightedDate(LocalDate petSightedDate) {
+		this.petSightedDate = petSightedDate;
 	}
 	/**
 	 * @return the user
@@ -272,20 +253,129 @@ public class Pet {
 	public void setLoc(List loc) {
 		this.loc = loc;
 	}
-	/**
-	 * @return the pet_Status
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
 	 */
-	public PetStatus getPet_Status() {
-		return Pet_Status;
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((loc == null) ? 0 : loc.hashCode());
+		result = prime * result + ((petBreed == null) ? 0 : petBreed.hashCode());
+		result = prime * result + ((petChipTag == null) ? 0 : petChipTag.hashCode());
+		result = prime * result + ((petColor == null) ? 0 : petColor.hashCode());
+		result = prime * result + ((petCreateDate == null) ? 0 : petCreateDate.hashCode());
+		result = prime * result + ((petDesc == null) ? 0 : petDesc.hashCode());
+		result = prime * result + ((petFoundDate == null) ? 0 : petFoundDate.hashCode());
+		result = prime * result + ((petId == null) ? 0 : petId.hashCode());
+		result = prime * result + ((petImgURL == null) ? 0 : petImgURL.hashCode());
+		result = prime * result + ((petLostDate == null) ? 0 : petLostDate.hashCode());
+		result = prime * result + ((petModifiedDate == null) ? 0 : petModifiedDate.hashCode());
+		result = prime * result + ((petName == null) ? 0 : petName.hashCode());
+		result = prime * result + ((petRabiesTag == null) ? 0 : petRabiesTag.hashCode());
+		result = prime * result + ((petSightedDate == null) ? 0 : petSightedDate.hashCode());
+		result = prime * result + ((petSize == null) ? 0 : petSize.hashCode());
+		result = prime * result + ((user == null) ? 0 : user.hashCode());
+		return result;
 	}
-	/**
-	 * @param pet_Status the pet_Status to set
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
-	public void setPet_Status(PetStatus pet_Status) {
-		Pet_Status = pet_Status;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Pet other = (Pet) obj;
+		if (loc == null) {
+			if (other.loc != null)
+				return false;
+		} else if (!loc.equals(other.loc))
+			return false;
+		if (petBreed == null) {
+			if (other.petBreed != null)
+				return false;
+		} else if (!petBreed.equals(other.petBreed))
+			return false;
+		if (petChipTag == null) {
+			if (other.petChipTag != null)
+				return false;
+		} else if (!petChipTag.equals(other.petChipTag))
+			return false;
+		if (petColor == null) {
+			if (other.petColor != null)
+				return false;
+		} else if (!petColor.equals(other.petColor))
+			return false;
+		if (petCreateDate == null) {
+			if (other.petCreateDate != null)
+				return false;
+		} else if (!petCreateDate.equals(other.petCreateDate))
+			return false;
+		if (petDesc == null) {
+			if (other.petDesc != null)
+				return false;
+		} else if (!petDesc.equals(other.petDesc))
+			return false;
+		if (petFoundDate == null) {
+			if (other.petFoundDate != null)
+				return false;
+		} else if (!petFoundDate.equals(other.petFoundDate))
+			return false;
+		if (petId == null) {
+			if (other.petId != null)
+				return false;
+		} else if (!petId.equals(other.petId))
+			return false;
+		if (petImgURL == null) {
+			if (other.petImgURL != null)
+				return false;
+		} else if (!petImgURL.equals(other.petImgURL))
+			return false;
+		if (petLostDate == null) {
+			if (other.petLostDate != null)
+				return false;
+		} else if (!petLostDate.equals(other.petLostDate))
+			return false;
+		if (petModifiedDate == null) {
+			if (other.petModifiedDate != null)
+				return false;
+		} else if (!petModifiedDate.equals(other.petModifiedDate))
+			return false;
+		if (petName == null) {
+			if (other.petName != null)
+				return false;
+		} else if (!petName.equals(other.petName))
+			return false;
+		if (petRabiesTag == null) {
+			if (other.petRabiesTag != null)
+				return false;
+		} else if (!petRabiesTag.equals(other.petRabiesTag))
+			return false;
+		if (petSightedDate == null) {
+			if (other.petSightedDate != null)
+				return false;
+		} else if (!petSightedDate.equals(other.petSightedDate))
+			return false;
+		if (petSize == null) {
+			if (other.petSize != null)
+				return false;
+		} else if (!petSize.equals(other.petSize))
+			return false;
+		if (user == null) {
+			if (other.user != null)
+				return false;
+		} else if (!user.equals(other.user))
+			return false;
+		return true;
 	}
-	
+		
 
+	
+	
 	
 	
 }
