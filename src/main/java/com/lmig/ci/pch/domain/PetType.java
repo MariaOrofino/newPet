@@ -8,6 +8,7 @@ package com.lmig.ci.pch.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -24,6 +25,7 @@ import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 public class PetType {
 
 	@Id
+	@GeneratedValue
 	@Column(name = "pettypeid")
 	private Integer petTypeId;
     

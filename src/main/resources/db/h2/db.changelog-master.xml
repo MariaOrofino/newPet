@@ -106,28 +106,12 @@
 
 	<changeSet id="8" author="mariaOrofino">
 		<sql>
-			DROP TABLE IF EXISTS Pet;
-			CREATE TABLE IF NOT EXISTS Pet 
+			CREATE TABLE IF NOT EXISTS pch.pet 
 			(
 				petId INT NOT NULL AUTO_INCREMENT,
-			  	petName VARCHAR(45) NULL,
-			  	petChipTag VARCHAR(45) NULL,
-				petRabiesTag VARCHAR(45) NULL,
-				petDesc VARCHAR(280) NOT NULL,
-				petBreed VARCHAR(45) NULL,
-				petSize VARCHAR(45) NOT NULL,
-				petColor VARCHAR(45) NOT NULL,
-				petImgUrl VARCHAR(100) NULL,
-				petCreateDate DATE NULL,
-				petModifiedDate DATE NULL,
-				petLostDate DATE NULL,
-				petFoundDate DATE NULL,
-				petSightedDate DATE NULL,
-				PRIMARY KEY (petId),
-				petStatusId INT,
+				petName VARCHAR(45) NULL,
 				petTypeId INT,
-				UNIQUE INDEX petChipTag_UNIQUE (petChipTag ASC),
-  				UNIQUE INDEX petRabiesTag_UNIQUE (petRabiesTag ASC)
+				PRIMARY KEY (petId)
 			)
 		</sql>
 	</changeSet>
