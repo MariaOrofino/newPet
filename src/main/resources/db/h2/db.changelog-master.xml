@@ -138,24 +138,13 @@
   petTypeId INT,
   UNIQUE INDEX petChipTag_UNIQUE (petChipTag ASC),
   UNIQUE INDEX petRabiesTag_UNIQUE (petRabiesTag ASC),
-  
+  foreign key (petTypeId) REFERENCES petType(petTypeId),
+  foreign key (petStatusId) REFERENCES petStatus(petStatusId)
 			)
 			ENGINE = InnoDB;
 		</sql>
 	</changeSet>
-<changeSet id="10" author="mariaOrofino">
-<sql>
 
-CREATE TABLE IF NOT EXISTS Pet_has_User (
-  petId INT NOT NULL,
-  petStatusId INT NOT NULL,
-  userId INT NOT NULL,
-  
-  
-ENGINE = InnoDB;
-
-</sql>
-</changeSet>
 
 
 </databaseChangeLog>
