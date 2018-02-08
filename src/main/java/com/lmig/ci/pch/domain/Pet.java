@@ -7,22 +7,19 @@
 package com.lmig.ci.pch.domain;
 
 import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import org.apache.catalina.User;
+
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
-
-import antlr.collections.List;
 
 /**
  * @author n0129947
@@ -34,7 +31,6 @@ public class Pet {
 
 	@Id
 	@GeneratedValue
-//	@Column(name = "petID")    if not using JPA you would need this to reference your DB
     private Integer petId;
     private String petName;
     private String petDesc;
@@ -44,7 +40,7 @@ public class Pet {
     private String petSize;
     private String petColor;
     
-	@Column(name = "PET_IMG_URL")
+	@Column(name = "PET_IMG_URL") //if not using JPA to database naming standards you would need this to reference your DB column name
     private String petImgUrl;
     private LocalDate petCreateDate;
     private LocalDate petModifiedDate;
@@ -54,8 +50,11 @@ public class Pet {
     
 //    private List loc;    
     
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "PET_TYPE_ID", insertable=false, updatable=false)
+
+//	@ManyToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "PET_TYPE_ID")
+
     private PetType petType;	
 
 //	@ManyToOne(fetch = FetchType.LAZY)
@@ -64,11 +63,6 @@ public class Pet {
 	
 //	@JoinColumn(name = "PET_STATUS_ID", insertable=false, updatable=false)
 //    private PetStatus petStatus;	
-    
-    //TODO finish but start this off simple
-	/**
-	 * @return the petId
-	 */
     
     
 	/**
@@ -264,6 +258,12 @@ public class Pet {
 //		this.loc = loc;
 //	}
 	
+	public PetType getPetType() {
+		return petType;
+	}
+	public void setPetType(PetType petType) {
+		this.petType = petType;
+	}
 	//the following 3 overrides are all that is needed for hashes and equals. DO NOT auto generate hashes & equals
 	@Override
 	public String toString() {
@@ -279,9 +279,5 @@ public class Pet {
 	public int hashCode() {
 		return HashCodeBuilder.reflectionHashCode(this);
 	}
-
-	
-	
-	
 	
 }

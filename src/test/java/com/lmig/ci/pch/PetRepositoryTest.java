@@ -31,6 +31,8 @@ public class PetRepositoryTest {
 
 	@Autowired
 	private PetRepository petRepository;
+	
+	@Autowired
 	private PetTypeRepository petTypeRepository;
 	
 	@Test
@@ -41,7 +43,14 @@ public class PetRepositoryTest {
 		pet.setPetDesc("Big black dog");
 		pet.setPetChipTag("myChipTag");
 		pet.setPetSize("Large");
-		pet.setPetColor("Black");	
+		pet.setPetColor("Black");
+		
+		PetType petType = new PetType();
+		petType.setPetSpecies("test");
+		
+		petTypeRepository.save(petType);
+		
+		pet.setPetType(petType);
 		
 		// check that we do not have an id set yet
 		Assert.assertTrue(pet.getPetId() == null);
