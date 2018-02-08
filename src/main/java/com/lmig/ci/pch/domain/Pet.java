@@ -7,14 +7,13 @@
 package com.lmig.ci.pch.domain;
 
 import java.time.LocalDate;
-import java.time.LocalDate;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -52,12 +51,16 @@ public class Pet {
     private LocalDate petLostDate;
     private LocalDate petFoundDate;
     private LocalDate petSightedDate;
-//    private User user;
+    
 //    private List loc;    
     
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "PET_TYPE_ID", insertable=false, updatable=false)
     private PetType petType;	
+
+//	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "USER_ID", insertable=false, updatable=false)
+    private User user;
 	
 //	@JoinColumn(name = "PET_STATUS_ID", insertable=false, updatable=false)
 //    private PetStatus petStatus;	
