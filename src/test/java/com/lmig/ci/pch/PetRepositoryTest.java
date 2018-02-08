@@ -16,7 +16,9 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.lmig.ci.pch.domain.Pet;
+import com.lmig.ci.pch.domain.PetType;
 import com.lmig.ci.pch.repository.PetRepository;
+import com.lmig.ci.pch.repository.PetTypeRepository;
 
 /**
  * @author n0129947
@@ -29,12 +31,17 @@ public class PetRepositoryTest {
 
 	@Autowired
 	private PetRepository petRepository;
+	private PetTypeRepository petTypeRepository;
 	
 	@Test
 	public void petTest(){
+		
 		Pet pet = new Pet();
-		pet.setPetName("myPetName");
+		pet.setPetName("Rover");
+		pet.setPetDesc("Big black dog");
 		pet.setPetChipTag("myChipTag");
+		pet.setPetSize("Large");
+		pet.setPetColor("Black");	
 		
 		// check that we do not have an id set yet
 		Assert.assertTrue(pet.getPetId() == null);

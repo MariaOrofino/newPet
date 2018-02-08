@@ -54,13 +54,13 @@ public class Pet {
     
 //    private List loc;    
     
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "PET_TYPE_ID", insertable=false, updatable=false)
-    private PetType petType;	
+//	@OneToOne(fetch = FetchType.LAZY)
+//	@JoinColumn(name = "PET_TYPE_ID", insertable=false, updatable=false)
+//    private PetType petType;	
 
 //	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "USER_ID", insertable=false, updatable=false)
-    private User user;
+//	@JoinColumn(name = "USER_ID", insertable=false, updatable=false)
+//    private User user;
 	
 //	@JoinColumn(name = "PET_STATUS_ID", insertable=false, updatable=false)
 //    private PetStatus petStatus;	
