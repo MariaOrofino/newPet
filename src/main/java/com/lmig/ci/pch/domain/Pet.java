@@ -7,7 +7,7 @@
 package com.lmig.ci.pch.domain;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -47,11 +47,11 @@ public class Pet {
     
 	@Column(name = "PET_IMG_URL")
     private String petImgUrl;
-//    private LocalDateTime petCreateDate;
-//    private LocalDateTime petModifiedDate;
-//    private LocalDateTime petLostDate;
-//    private LocalDateTime petFoundDate;
-//    private LocalDateTime petSightedDate;
+    private LocalDate petCreateDate;
+    private LocalDate petModifiedDate;
+    private LocalDate petLostDate;
+    private LocalDate petFoundDate;
+    private LocalDate petSightedDate;
 //    private User user;
 //    private List loc;    
     
@@ -176,66 +176,66 @@ public class Pet {
 	public void setPetImgUrl(String petImgUrl) {
 		this.petImgUrl = petImgUrl;
 	}
-//	/**
-//	 * @return the petCreateDate
-//	 */
-//	public LocalDateTime getPetCreateDate() {
-//		return petCreateDate;
-//	}
-//	/**
-//	 * @param petCreateDate the petCreateDate to set
-//	 */
-//	public void setPetCreateDate(LocalDateTime petCreateDate) {
-//		this.petCreateDate = petCreateDate;
-//	}
-//	/**
-//	 * @return the petModifiedDate
-//	 */
-//	public LocalDate getPetModifiedDate() {
-//		return petModifiedDate;
-//	}
-//	/**
-//	 * @param petModifiedDate the petModifiedDate to set
-//	 */
-//	public void setPetModifiedDate(LocalDate petModifiedDate) {
-//		this.petModifiedDate = petModifiedDate;
-//	}
-//	/**
-//	 * @return the petLostDate
-//	 */
-//	public LocalDate getPetLostDate() {
-//		return petLostDate;
-//	}
-//	/**
-//	 * @param petLostDate the petLostDate to set
-//	 */
-//	public void setPetLostDate(LocalDate petLostDate) {
-//		this.petLostDate = petLostDate;
-//	}
-//	/**
-//	 * @return the petFoundDate
-//	 */
-//	public LocalDate getPetFoundDate() {
-//		return petFoundDate;
-//	}
-//	/**
-//	 * @param petFoundDate the petFoundDate to set
-//	 */
-//	public void setPetFoundDate(LocalDate petFoundDate) {
-//		this.petFoundDate = petFoundDate;
-//	}
-//	/**
-//	 * @return the petSightedDate
-//	 */
-//	public LocalDate getPetSightedDate() {
-//		return petSightedDate;
-//	}
-//	/**
-//	 * @param petSightedDate the petSightedDate to set
-//	 */
-//	public void setPetSightedDate(LocalDate petSightedDate) {
-//		this.petSightedDate = petSightedDate;
-//	}
+	/**
+	 * @return the petCreateDate
+	 */
+	public LocalDate getPetCreateDate() {
+		return petCreateDate;
+	}
+	/**
+	 * @param petCreateDate the petCreateDate to set
+	 */
+	public void setPetCreateDate(LocalDate petCreateDate) {
+		this.petCreateDate = petCreateDate;
+	}
+	/**
+	 * @return the petModifiedDate
+	 */
+	public LocalDate getPetModifiedDate() {
+		return petModifiedDate;
+	}
+	/**
+	 * @param petModifiedDate the petModifiedDate to set
+	 */
+	public void setPetModifiedDate(LocalDate petModifiedDate) {
+		this.petModifiedDate = petModifiedDate;
+	}
+	/**
+	 * @return the petLostDate
+	 */
+	public LocalDate getPetLostDate() {
+		return petLostDate;
+	}
+	/**
+	 * @param petLostDate the petLostDate to set
+	 */
+	public void setPetLostDate(LocalDate petLostDate) {
+		this.petLostDate = petLostDate;
+	}
+	/**
+	 * @return the petFoundDate
+	 */
+	public LocalDate getPetFoundDate() {
+		return petFoundDate;
+	}
+	/**
+	 * @param petFoundDate the petFoundDate to set
+	 */
+	public void setPetFoundDate(LocalDate petFoundDate) {
+		this.petFoundDate = petFoundDate;
+	}
+	/**
+	 * @return the petSightedDate
+	 */
+	public LocalDate getPetSightedDate() {
+		return petSightedDate;
+	}
+	/**
+	 * @param petSightedDate the petSightedDate to set
+	 */
+	public void setPetSightedDate(LocalDate petSightedDate) {
+		this.petSightedDate = petSightedDate;
+	}
 //	/**
 //	 * @return the user
 //	 */
@@ -260,6 +260,8 @@ public class Pet {
 //	public void setLoc(List loc) {
 //		this.loc = loc;
 //	}
+	
+	//the following 3 overrides are all that is needed for hashes and equals. DO NOT auto generate hashes & equals
 	@Override
 	public String toString() {
 		return ReflectionToStringBuilder.reflectionToString(this);
