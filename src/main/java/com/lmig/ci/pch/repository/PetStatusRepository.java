@@ -9,17 +9,15 @@ package com.lmig.ci.pch.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-
-import com.lmig.ci.pch.domain.User;
+import com.lmig.ci.pch.domain.PetStatus;
 
 /**
  * @author n0263892
  *
  */
 
-@Repository
-public interface UserRepository extends JpaRepository<User, Integer> {
-	
-	User findByUserLogin (String UserLogin);
-	
-}
+	@Repository
+	public interface PetStatusRepository extends JpaRepository<PetStatus, Integer> {
+
+	}
+

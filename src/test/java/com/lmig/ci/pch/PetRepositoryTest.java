@@ -16,6 +16,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.lmig.ci.pch.domain.Pet;
+import com.lmig.ci.pch.domain.PetStatus;
 import com.lmig.ci.pch.domain.PetType;
 import com.lmig.ci.pch.domain.User;
 import com.lmig.ci.pch.repository.PetRepository;
@@ -37,6 +38,7 @@ public class PetRepositoryTest {
 	@Autowired
 	private PetTypeRepository petTypeRepository;
 	
+	
 	@Test
 	public void petTest(){
 		
@@ -49,16 +51,18 @@ public class PetRepositoryTest {
 		
 		PetType petType = new PetType();
 		petType.setPetSpecies("test");
-		
 		petTypeRepository.save(petType);
-		
-		
 		pet.setPetType(petType);
 	    
 		User user = new User();
 		user.setUserId(2);
-	 
 		pet.setUser(user);
+		
+		PetStatus petStatus = new PetStatus();
+		petStatus.setPetStatusId(1);
+		petStatus.setPetStatus("Lost");
+		pet.setPetStatus(petStatus);
+		
 		
 		
 		

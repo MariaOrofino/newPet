@@ -8,7 +8,6 @@ package com.lmig.ci.pch.domain;
 
 import java.time.LocalDate;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -54,10 +53,9 @@ public class Pet {
 	private LocalDate petFoundDate;
 	private LocalDate petSightedDate;
 
-//   @OneToOne(fetch = FetchType.LAZY)
-//   @JoinColumn(name = "LOC_ID")
-//	private List LOCATION;
-	
+	// @OneToOne(fetch = FetchType.LAZY)
+	// @JoinColumn(name = "LOC_ID")
+	// private List LOCATION;
 
 	// @ManyToOne(fetch = FetchType.EAGER)
 	@OneToOne(fetch = FetchType.LAZY)
@@ -68,30 +66,38 @@ public class Pet {
 	@JoinColumn(name = "USER_ID")
 	private User user;
 
-	// @JoinColumn(name = "PET_STATUS_ID", insertable=false, updatable=false)
-	// private PetStatus petStatus;
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "PET_STATUS_ID")
+	private PetStatus petStatus;
 
-	
-//	public List getLOCATION() {
-//		return LOCATION;
-//	}
-//
-//	
-//	public void setLOCATION(List lOCATION) {
-//		LOCATION = lOCATION;
-//	}
+	// public List getLOCATION() {
+	// return LOCATION;
+	// }
+	//
+	//
+	// public void setLOCATION(List lOCATION) {
+	// LOCATION = lOCATION;
+	// }
 
-	/**
-	 * @return the petId
-	 */
 	public Integer getPetId() {
 		return petId;
 	}
 
 	/**
-	 * @param petId
-	 *            the petId to set
+	 * @return the petStatus
 	 */
+	public PetStatus getPetStatus() {
+		return petStatus;
+	}
+
+	/**
+	 * @param petStatus
+	 *            the petStatus to set
+	 */
+	public void setPetStatus(PetStatus petStatus) {
+		this.petStatus = petStatus;
+	}
+
 	public void setPetId(Integer petId) {
 		this.petId = petId;
 	}
@@ -319,17 +325,14 @@ public class Pet {
 		return petType;
 	}
 
-
 	public void setPetType(PetType petType) {
 		this.petType = petType;
 	}
 
-	
 	public User getUser() {
 		return user;
 	}
 
-	
 	public void setUser(User user) {
 		this.user = user;
 	}
@@ -350,7 +353,5 @@ public class Pet {
 	public int hashCode() {
 		return HashCodeBuilder.reflectionHashCode(this);
 	}
-
-	
 
 }
