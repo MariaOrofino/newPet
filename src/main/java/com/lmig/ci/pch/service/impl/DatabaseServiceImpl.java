@@ -10,8 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.lmig.ci.pch.domain.Pet;
+import com.lmig.ci.pch.domain.User;
 import com.lmig.ci.pch.repository.PetRepository;
 import com.lmig.ci.pch.repository.PetTypeRepository;
+import com.lmig.ci.pch.repository.UserRepository;
 import com.lmig.ci.pch.service.DatabaseService;
 
 /**
@@ -26,6 +28,9 @@ public class DatabaseServiceImpl implements DatabaseService{
 	
 	@Autowired
 	private PetRepository petRepository;
+	
+	@Autowired
+	private UserRepository userRepository;
 
 	//TODO add methods
 	
@@ -35,6 +40,11 @@ public class DatabaseServiceImpl implements DatabaseService{
 	@Override
 	public void savePet(Pet pet) {
 		petRepository.save(pet);		
+	}
+	
+	@Override
+	public void saveUser(User user) {
+		userRepository.save(user);		
 	}
 
 	/* (non-Javadoc)

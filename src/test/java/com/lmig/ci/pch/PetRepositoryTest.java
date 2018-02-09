@@ -17,8 +17,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.lmig.ci.pch.domain.Pet;
 import com.lmig.ci.pch.domain.PetType;
+import com.lmig.ci.pch.domain.User;
 import com.lmig.ci.pch.repository.PetRepository;
 import com.lmig.ci.pch.repository.PetTypeRepository;
+import com.lmig.ci.pch.repository.UserRepository;
 
 /**
  * @author n0129947
@@ -50,7 +52,16 @@ public class PetRepositoryTest {
 		
 		petTypeRepository.save(petType);
 		
+		
 		pet.setPetType(petType);
+	    
+		User user = new User();
+		user.setUserId(2);
+	 
+		pet.setUser(user);
+		
+		
+		
 		
 		// check that we do not have an id set yet
 		Assert.assertTrue(pet.getPetId() == null);
