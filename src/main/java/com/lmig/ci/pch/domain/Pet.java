@@ -8,18 +8,22 @@ package com.lmig.ci.pch.domain;
 
 import java.time.LocalDate;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+
+import antlr.collections.List;
 
 /**
  * @author n0129947
@@ -50,7 +54,10 @@ public class Pet {
 	private LocalDate petFoundDate;
 	private LocalDate petSightedDate;
 
-	// private List loc;
+//   @OneToOne(fetch = FetchType.LAZY)
+//   @JoinColumn(name = "LOC_ID")
+//	private List LOCATION;
+	
 
 	// @ManyToOne(fetch = FetchType.EAGER)
 	@OneToOne(fetch = FetchType.LAZY)
@@ -63,6 +70,16 @@ public class Pet {
 
 	// @JoinColumn(name = "PET_STATUS_ID", insertable=false, updatable=false)
 	// private PetStatus petStatus;
+
+	
+//	public List getLOCATION() {
+//		return LOCATION;
+//	}
+//
+//	
+//	public void setLOCATION(List lOCATION) {
+//		LOCATION = lOCATION;
+//	}
 
 	/**
 	 * @return the petId
