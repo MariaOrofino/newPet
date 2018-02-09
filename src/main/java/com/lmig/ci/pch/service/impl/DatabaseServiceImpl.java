@@ -38,8 +38,8 @@ public class DatabaseServiceImpl implements DatabaseService{
 	 * @see com.lmig.ci.pch.service.DatabaseService#savePet(com.lmig.ci.pch.domain.Pet)
 	 */
 	@Override
-	public void savePet(Pet pet) {
-		petRepository.save(pet);		
+	public Pet savePet(Pet pet) {
+		return petRepository.save(pet);		
 	}
 	
 	@Override

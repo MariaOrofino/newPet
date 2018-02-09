@@ -15,7 +15,7 @@ import com.lmig.ci.pch.domain.User;
  */
 public interface DatabaseService {
 
-	void savePet(Pet pet);
+	Pet savePet(Pet pet);
 	Pet findByPetChipTag(String petChipTag);
 	/**
 	 * @param user
