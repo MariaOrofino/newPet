@@ -14,15 +14,12 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
-
-import antlr.collections.List;
 
 /**
  * @author n0129947
@@ -53,20 +50,20 @@ public class Pet {
 	private LocalDate petFoundDate;
 	private LocalDate petSightedDate;
 
-	// @OneToOne(fetch = FetchType.LAZY)
+	// @OneToOne(fetch = FetchType.EAGER)
 	// @JoinColumn(name = "LOC_ID")
 	// private List LOCATION;
 
 	// @ManyToOne(fetch = FetchType.EAGER)
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "PET_TYPE_ID")
 	private PetType petType;
 
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "USER_ID")
 	private User user;
 
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "PET_STATUS_ID")
 	private PetStatus petStatus;
 
