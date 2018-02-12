@@ -89,7 +89,7 @@ public class UserRepositoryTest {
         userRepository.delete(user2);
 
         // check that we do not have a user2 set anymore
-        Assert.assertTrue(user2.getUserId() != null);
+        Assert.assertTrue(user2.getUserId() == null);
         Assert.assertEquals(1, userList.size());
 
     }
