@@ -109,13 +109,13 @@
 	</changeSet>
 	
 	<!-- this will not stay...just a way to get an easy set of data in for swagger -->
-	<changeSet id="9" author="tgelhar">
-		<sql>
-			insert into PCH.PET_TYPE values (0,'dog', null);
-			insert into PCH.PET_STATUS values(0,'test');
-			insert into PCH.USER values (0, 'test', 'test', 'test', 'wi', 'test', 'test', 'test', 'test', 'test', 'test', 'test');
-		</sql>
-	</changeSet>
+<!-- 	<changeSet id="9" author="tgelhar"> -->
+<!-- 		<sql> -->
+<!-- 			insert into PCH.PET_TYPE values (0,'dog', null); -->
+<!-- 			insert into PCH.PET_STATUS values(0,'test'); -->
+<!-- 			insert into PCH.USER values (0, 'test', 'test', 'test', 'wi', 'test', 'test', 'test', 'test', 'test', 'test', 'test'); -->
+<!-- 		</sql> -->
+<!-- 	</changeSet> -->
 <!-- 	<changeSet id="10" author="mariaOrofino">
 		<sql>
 			CREATE TABLE IF NOT EXISTS PCH.PET_HAS_USER

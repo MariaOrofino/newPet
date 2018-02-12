@@ -93,5 +93,5 @@ public class UserRepositoryTest {
         Assert.assertEquals(1, userList.size());
 
     }
-
 }
+
