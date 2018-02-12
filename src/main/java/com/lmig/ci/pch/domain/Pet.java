@@ -21,6 +21,8 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
+import antlr.collections.List;
+
 /**
  * @author n0129947
  *
@@ -50,9 +52,9 @@ public class Pet {
 	private LocalDate petFoundDate;
 	private LocalDate petSightedDate;
 
-	// @OneToOne(fetch = FetchType.EAGER)
-	// @JoinColumn(name = "LOC_ID")
-	// private List LOCATION;
+	 @OneToOne(fetch = FetchType.EAGER)
+	 @JoinColumn(name = "LOC_ID")
+	 private Location location;
 
 	// @ManyToOne(fetch = FetchType.EAGER)
 	@OneToOne(fetch = FetchType.EAGER)
@@ -67,14 +69,49 @@ public class Pet {
 	@JoinColumn(name = "PET_STATUS_ID")
 	private PetStatus petStatus;
 
-	// public List getLOCATION() {
-	// return LOCATION;
-	// }
-	//
-	//
-	// public void setLOCATION(List lOCATION) {
-	// LOCATION = lOCATION;
-	// }
+	
+
+	/**
+	 * @return the location
+	 */
+	public Location getLocation() {
+		return location;
+	}
+
+	/**
+	 * @param location the location to set
+	 */
+	public void setLocation(Location location) {
+		this.location = location;
+	}
+
+	/**
+	 * @return the petType
+	 */
+	public PetType getPetType() {
+		return petType;
+	}
+
+	/**
+	 * @param petType the petType to set
+	 */
+	public void setPetType(PetType petType) {
+		this.petType = petType;
+	}
+
+	/**
+	 * @return the user
+	 */
+	public User getUser() {
+		return user;
+	}
+
+	/**
+	 * @param user the user to set
+	 */
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 	public Integer getPetId() {
 		return petId;
@@ -293,49 +330,7 @@ public class Pet {
 	public void setPetSightedDate(LocalDate petSightedDate) {
 		this.petSightedDate = petSightedDate;
 	}
-	// /**
-	// * @return the user
-	// */
-	// public User getUser() {
-	// return user;
-	// }
-	// /**
-	// * @param user the user to set
-	// */
-	// public void setUser(User user) {
-	// this.user = user;
-	// }
-	// /**
-	// * @return the loc
-	// */
-	// public List getLoc() {
-	// return loc;
-	// }
-	// /**
-	// * @param loc the loc to set
-	// */
-	// public void setLoc(List loc) {
-	// this.loc = loc;
-	// }
-
-	public PetType getPetType() {
-		return petType;
-	}
-
-	public void setPetType(PetType petType) {
-		this.petType = petType;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-	// the following 3 overrides are all that is needed for hashes and equals.
-	// DO NOT auto generate hashes & equals
+	
 	@Override
 	public String toString() {
 		return ReflectionToStringBuilder.reflectionToString(this);

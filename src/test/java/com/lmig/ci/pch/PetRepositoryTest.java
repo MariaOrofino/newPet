@@ -15,10 +15,12 @@ import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.lmig.ci.pch.domain.Location;
 import com.lmig.ci.pch.domain.Pet;
 import com.lmig.ci.pch.domain.PetStatus;
 import com.lmig.ci.pch.domain.PetType;
 import com.lmig.ci.pch.domain.User;
+import com.lmig.ci.pch.repository.LocationRepository;
 import com.lmig.ci.pch.repository.PetRepository;
 import com.lmig.ci.pch.repository.PetStatusRepository;
 import com.lmig.ci.pch.repository.PetTypeRepository;
@@ -33,19 +35,21 @@ import com.lmig.ci.pch.repository.UserRepository;
 @ActiveProfiles("unit-test")
 public class PetRepositoryTest {
 
-
 	@Autowired
 	private PetRepository petRepository;
-	
+
 	@Autowired
 	private PetTypeRepository petTypeRepository;
-	
+
 	@Autowired
 	private UserRepository userRepository;
-	
+
 	@Autowired
 	private PetStatusRepository petStatusRepository;
-	
+
+	@Autowired
+	private LocationRepository locationRepository;
+
 	@Test
 	public void petTest(){
 		
@@ -77,6 +81,14 @@ public class PetRepositoryTest {
 		petStatus.setPetStatus("Lost");
 		petStatusRepository.save(petStatus);
 		pet.setPetStatus(petStatus);
+		
+		Location location = new Location();
+		location.setLocDesc("the backyard");
+		location.setLocState("NY");
+		location.setLocInd("y");
+		locationRepository.save(location);
+		pet.setLocation(location);
+		
 
 		
 		// check that we do not have an id set yet

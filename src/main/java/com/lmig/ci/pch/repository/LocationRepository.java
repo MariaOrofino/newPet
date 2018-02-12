@@ -10,6 +10,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.lmig.ci.pch.domain.Location;
 
+
+
 /**
  * @author n0263892
  *

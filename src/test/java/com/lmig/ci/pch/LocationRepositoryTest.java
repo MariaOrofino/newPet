@@ -16,7 +16,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.lmig.ci.pch.domain.Location;
-import com.lmig.ci.pch.domain.Pet;
+import com.lmig.ci.pch.repository.LocationRepository;
 
 /**
  * @author n0263892
@@ -25,39 +25,21 @@ import com.lmig.ci.pch.domain.Pet;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("unit-test")
-public class LocationRepository {
-	
+public class LocationRepositoryTest {
+
 	@Autowired
 	private LocationRepository locationRepository;
-	
+
 	@Test
-	public void locationTest(){
+	public void locationTest() {
 		Location location = new Location();
 		location.setLocDesc("it's a great description");
+		location.setLocState("nh");
 		location.setLocInd("y");
-		
 
-		
-		// check that we do not have an id set yet
-		Assert.assertTrue(Location.getLocId() == null);
-		
-		//save the pet to the database
+		Assert.assertTrue(location.getLocId() == null);
 		locationRepository.save(location);
-		
-        // check that what was saved got an id
-        Assert.assertTrue(location.getLocId() != null);
-        
-       
-		
-	}
+		Assert.assertTrue(location.getLocId() != null);
 
-	/**
-	 * @param location
-	 */
-	private void save(Location location) {
-		// TODO Auto-generated method stub
-		
 	}
-	
-		
-	}
+}
