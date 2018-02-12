@@ -29,19 +29,19 @@ import com.lmig.ci.pch.repository.PetStatusRepository;
 
 public class PetStatusRepositoryTest {
 
-	@Autowired
-	private PetStatusRepository petStatusRepository;
+    @Autowired
+    private PetStatusRepository petStatusRepository;
 
-	@Test
-	public void petStatusTest() {
-		PetStatus petStatus = new PetStatus();
-		petStatus.setPetStatus("Lost");
+    @Test
+    public void petStatusTest() {
+        PetStatus petStatus = new PetStatus();
+        petStatus.setPetStatus("Lost");
 
-		Assert.assertTrue(petStatus.getPetStatusId() == null);
+        Assert.assertTrue(petStatus.getPetStatusId() == null);
 
-		petStatusRepository.save(petStatus);
+        petStatusRepository.save(petStatus);
 
-		Assert.assertTrue(petStatus.getPetStatusId() != null);
-	}
+        Assert.assertTrue(petStatus.getPetStatusId() != null);
+    }
 
 }
