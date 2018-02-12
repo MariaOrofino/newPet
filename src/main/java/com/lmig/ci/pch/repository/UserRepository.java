@@ -20,6 +20,6 @@ import com.lmig.ci.pch.domain.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
 	
-	User findByUserLogin (String UserLogin);
+	User findByUserLogin(String UserLogin);	
 	
 }

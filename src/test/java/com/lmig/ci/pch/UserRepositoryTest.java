@@ -18,7 +18,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.lmig.ci.pch.domain.User;
 import com.lmig.ci.pch.repository.UserRepository;
 
-
 /**
  * @author n0263892
  *
@@ -27,36 +26,70 @@ import com.lmig.ci.pch.repository.UserRepository;
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("unit-test")
 public class UserRepositoryTest {
-	
-	@Autowired
-	private UserRepository userRepository;
 
-	
+    @Autowired
+    private UserRepository userRepository;
 
-	@Test
-	public void userTest(){
-		User user = new User();
-		user.setUserFirstName("firstName");
-		user.setUserLastName("lastName");
-		user.setUserLogin("coolLogin");
-		user.setUserCity("Emerald City");
-		user.setUserState("NH");
-		user.setUserMobile("6035551212");
-		user.setUserEmail("maria.yakkey@libertymutual.com");
-		user.setUserZip("11050");
-	
-		
-		// check that we do not have an id set yet
-		Assert.assertTrue(user.getUserId() == null);
-				
-		
-		userRepository.save(user);
-		
+    @Test
+    public void userTest() {
+        User user = new User();
+        user.setUserFirstName("firstName");
+        user.setUserLastName("lastName");
+        user.setUserLogin("coolLogin");
+        user.setUserCity("Emerald City");
+        user.setUserState("NH");
+        user.setUserMobile("6035551212");
+        user.setUserEmail("maria.yakkey@libertymutual.com");
+        user.setUserZip("11050");
+
+        // check that we do not have an id set yet
+        Assert.assertTrue(user.getUserId() == null);
+
+        userRepository.save(user);
+
         // check that what was saved got an id
-        Assert.assertTrue(user.getUserId() != null);   
-		
-	}
+        Assert.assertTrue(user.getUserId() != null);
+
+    }
+    
+    @Test
+    public void userDeleteTest() {
+        User user = new User();
+        user.setUserFirstName("Bill");
+        user.setUserLastName("Saunders");
+        user.setUserLogin("coolLogin");
+        user.setUserCity("Emerald City");
+        user.setUserState("NH");
+        user.setUserMobile("6035551212");
+        user.setUserEmail("william.saunders@libertymutual.com");
+        user.setUserZip("03820");
+        
+        userRepository.save(user);
+        
+        User user2 = new User();
+        user2.setUserFirstName("firstName");
+        user2.setUserLastName("lastName");
+        user2.setUserLogin("coolLogin");
+        user2.setUserCity("Emerald City");
+        user2.setUserState("NH");
+        user2.setUserMobile("6035551212");
+        user2.setUserEmail("maria.yakkey@libertymutual.com");
+        user2.setUserZip("11050");
+        
+        userRepository.save(user2);
+
+        // check to see if there are 2 users
+        Assert.assertEquals(user.getUserId(), user2.getUserId());
+        
+        // delete user
+        userRepository.delete(user2);
+        
+        // check that we do not have a user2 set anymore
+        Assert.assertTrue(user2.getUserId() == null);
+        
+        
+
+    }
 
 
-		
-	}
+}

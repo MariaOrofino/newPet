@@ -32,6 +32,7 @@ import com.lmig.ci.pch.repository.UserRepository;
 @ActiveProfiles("unit-test")
 public class PetRepositoryTest {
 
+<<<<<<< HEAD
 	@Autowired
 	private PetRepository petRepository;
 	
@@ -75,13 +76,51 @@ public class PetRepositoryTest {
 		//save the pet to the database
 		petRepository.save(pet);
 		
+=======
+    @Autowired
+    private PetRepository petRepository;
+
+    @Autowired
+    private PetTypeRepository petTypeRepository;
+
+    @Test
+    public void petTest() {
+
+        Pet pet = new Pet();
+        pet.setPetName("Rover");
+        pet.setPetDesc("Big black dog");
+        pet.setPetChipTag("myChipTag");
+        pet.setPetSize("Large");
+        pet.setPetColor("Black");
+
+        PetType petType = new PetType();
+        petType.setPetSpecies("test");
+        petTypeRepository.save(petType);
+        pet.setPetType(petType);
+
+        User user = new User();
+        user.setUserId(2);
+        pet.setUser(user);
+
+        PetStatus petStatus = new PetStatus();
+        petStatus.setPetStatusId(1);
+        petStatus.setPetStatus("Lost");
+        pet.setPetStatus(petStatus);
+
+        // check that we do not have an id set yet
+        Assert.assertTrue(pet.getPetId() == null);
+
+        // save the pet to the database
+        petRepository.save(pet);
+
+>>>>>>> b6f9e7feccfa50087d12136487c7289b49fac0ee
         // check that what was saved got an id
         Assert.assertTrue(pet.getPetId() != null);
-        
-        //find a pet by chip tag and verify if it matches
+
+        // find a pet by chip tag and verify if it matches
         Pet foundPet = petRepository.findByPetChipTag("myChipTag");
         Assert.assertEquals(pet.getPetId(), foundPet.getPetId());
-		
-	}
-	
+
+    }
+
 }

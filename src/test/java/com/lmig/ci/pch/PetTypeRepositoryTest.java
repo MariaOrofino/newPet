@@ -27,25 +27,23 @@ import com.lmig.ci.pch.repository.PetTypeRepository;
 @ActiveProfiles("unit-test")
 public class PetTypeRepositoryTest {
 
-	@Autowired
-	private PetTypeRepository petTypeRepository;
-	
-	@Test
-	public void petTypeTest(){
-		PetType petType = new PetType();
-		petType.setPetSpecies("species");
-		petType.setOther(1);
-		
-		// check that we do not have an id set yet
-		Assert.assertTrue(petType.getPetTypeId() == null);
-		 
-		petTypeRepository.save(petType);
-		
-		
-		
+    @Autowired
+    private PetTypeRepository petTypeRepository;
+
+    @Test
+    public void petTypeTest() {
+        PetType petType = new PetType();
+        petType.setPetSpecies("species");
+        petType.setOther(1);
+
+        // check that we do not have an id set yet
+        Assert.assertTrue(petType.getPetTypeId() == null);
+
+        petTypeRepository.save(petType);
+
         // check that what was saved got an id
-        Assert.assertTrue(petType.getPetTypeId() != null);   
-		
-	}
-	
+        Assert.assertTrue(petType.getPetTypeId() != null);
+
+    }
+
 }

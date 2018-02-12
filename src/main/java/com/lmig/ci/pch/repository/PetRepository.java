@@ -19,5 +19,6 @@ import com.lmig.ci.pch.domain.Pet;
 public interface PetRepository extends JpaRepository<Pet, Integer> {
 
 	Pet findByPetChipTag(String petChipTag);
-	Pet findByPetRabiesTag(String petRabiesTag);}
+	Pet findByPetRabiesTag(String petRabiesTag);
+	}
 	
