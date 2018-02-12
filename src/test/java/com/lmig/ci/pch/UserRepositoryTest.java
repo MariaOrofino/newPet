@@ -88,12 +88,13 @@ public class UserRepositoryTest {
         // delete user
         userRepository.delete(user2);
 
-        // check that we do not have a user2 set anymore
-        Assert.assertTrue(user2.getUserId() == null);
-
+        // check again to see what is in the database
+        userList = userRepository.findAll();
+        
         Assert.assertEquals(1, userList.size());
-
-
+        
+        // check that we do not have a user2 set anymore in the database
+        Assert.assertTrue(userRepository.findOne(user2.getUserId()) == null);
     }
 }
 
