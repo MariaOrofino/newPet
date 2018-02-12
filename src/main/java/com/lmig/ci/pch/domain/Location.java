@@ -45,7 +45,7 @@ public class Location {
 	/**
 	 * @return the locId
 	 */
-	public static Integer getLocId() {
+	public Integer getLocId() {
 		return locId;
 	}
 	/**
