@@ -90,7 +90,9 @@ public class UserRepositoryTest {
 
         // check that we do not have a user2 set anymore
         Assert.assertTrue(user2.getUserId() == null);
-        Assert.assertEquals(0, userList.size());
+
+        Assert.assertEquals(1, userList.size());
+
 
     }
 }
