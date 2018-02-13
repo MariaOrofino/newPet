@@ -46,5 +46,11 @@ public class PetController {
         return databaseService.findAllPets();
     }
     
-
+//    TODO
+    
+//    @ApiOperation(value = "Find Pets by location")
+//    @GetMapping(value="/find-pets-by-location")
+//    public List<Pet> findPetsByLocation(){
+//        return databaseService.findPetsByLocation();
+//    }
 }
