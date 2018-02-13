@@ -58,7 +58,7 @@ public class PetRepositoryTest {
 	
 	
 	 @Test
-	 @Rollback(true)
+	 
 	 public void petTest(){
 	
 	 Pet pet = new Pet();
@@ -213,7 +213,10 @@ public class PetRepositoryTest {
 		 null);
 		
 
+		 
 	}
+	
+	
 }
 
 /*
