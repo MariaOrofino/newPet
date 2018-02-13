@@ -21,5 +21,6 @@ import com.lmig.ci.pch.domain.User;
 public interface UserRepository extends JpaRepository<User, Integer> {
 	
 	User findByUserLogin(String UserLogin);	
+	User updateUser(User user);
 	
 }
