@@ -11,6 +11,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.lmig.ci.pch.domain.Location;
 import com.lmig.ci.pch.domain.Pet;
 import com.lmig.ci.pch.domain.User;
 import com.lmig.ci.pch.repository.PetRepository;
@@ -68,5 +69,16 @@ public class DatabaseServiceImpl implements DatabaseService {
     public List<Pet> findAllPets() {
         return petRepository.findAll();
     }
+
+	/* (non-Javadoc)
+	 * @see com.lmig.ci.pch.service.DatabaseService#findAllPetLocations()
+	 */
+	@Override
+	public List<Location> findAllPetLocations() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+    
+    
 
 }

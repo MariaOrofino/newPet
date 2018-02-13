@@ -8,6 +8,7 @@ package com.lmig.ci.pch.service;
 
 import java.util.List;
 
+import com.lmig.ci.pch.domain.Location;
 import com.lmig.ci.pch.domain.Pet;
 import com.lmig.ci.pch.domain.User;
 
@@ -20,6 +21,7 @@ public interface DatabaseService {
 	Pet savePet(Pet pet);
 	Pet findByPetChipTag(String petChipTag);
 	List<Pet> findAllPets();
+	List<Location>findAllPetLocations();
 	
 	void saveUser(User user);
 }
