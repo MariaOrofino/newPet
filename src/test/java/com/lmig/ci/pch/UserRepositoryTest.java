@@ -28,7 +28,7 @@ import com.lmig.ci.pch.repository.UserRepository;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("unit-test")
-@Rollback(true)
+//@Rollback(true)
 public class UserRepositoryTest {
 
     @Autowired

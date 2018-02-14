@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.lmig.ci.pch.domain.Location;
 import com.lmig.ci.pch.domain.Pet;
+import com.lmig.ci.pch.domain.PetStatus;
 
 /**
  * @author n0129947
@@ -22,5 +23,6 @@ public interface PetRepository extends JpaRepository<Pet, Integer> {
 	Pet findByPetChipTag(String petChipTag);
 	Pet findByPetRabiesTag(String petRabiesTag);
 	Pet findByLocation(Location location);
+//	Pet updateStatus (PetStatus petStatus);
 	}
 	
