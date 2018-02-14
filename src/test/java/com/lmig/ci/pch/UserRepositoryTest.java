@@ -18,6 +18,7 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.lmig.ci.pch.domain.Pet;
 import com.lmig.ci.pch.domain.User;
 import com.lmig.ci.pch.repository.UserRepository;
 
@@ -84,7 +85,7 @@ public class UserRepositoryTest {
 
         List<User> userList = userRepository.findAll();
 
-        // check to see if there are 2 users. Have with 3, not sure where State-wi user is coming from!!
+        // check to see if there are 2 users. 
         Assert.assertEquals(2, userList.size());
 
         // delete user
@@ -98,6 +99,30 @@ public class UserRepositoryTest {
         // check that we do not have a user2 set anymore in the database
         Assert.assertTrue(userRepository.findOne(user2.getUserId()) == null);
     }
+    
+//    @Test
+//    public void userUpdateTest() {
+//        User user = new User();
+//        user.setUserFirstName("Bill");
+//        user.setUserLastName("Saunders");
+//        user.setUserLogin("coolLogin");
+//        user.setUserCity("Emerald City");
+//        user.setUserState("NH");
+//        user.setUserMobile("6035551212");
+//        user.setUserEmail("william.saunders@libertymutual.com");
+//        user.setUserZip("03820");
+//
+//        userRepository.save(user);  
+//        
+//        // find a user by login and verify if it matches
+//
+//        User updateUser = userRepository.findByUserLogin("coolLogin");
+//        Assert.assertEquals(user.getUserLogin(), updateUser.getUserLogin());
+//        
+//        userRepository
+//        
+//              
+//    }
 }
 
 //todo
