@@ -1,0 +1,5 @@
+eclipse.preferences.version=1
+extraProperties=sonar.java.coveragePlugin\=jacoco\r\nsonar.jacoco.itReportPath\=C\:\\Users\\n0147313\\workspace\\newPet/target/coverage-reports/jacoco-it.exec\r\nsonar.jacoco.reportPath\=C\:\\Users\\n0147313\\workspace\\newPet/target/coverage-reports/jacoco-unit.exec\r\nsonar.dynamicAnalysis\=reuseReports
+projectKey=com.lmig.ci.sandbox\:newpch
+serverUrl=http\://localhost\:9000
+version=2
