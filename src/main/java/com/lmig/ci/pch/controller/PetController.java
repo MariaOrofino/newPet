@@ -48,6 +48,8 @@ public class PetController {
     
 //    TODO
     
+// add pet type and pet status - jg
+    
 //    @ApiOperation(value = "Find Pets by location")
 //    @GetMapping(value="/find-pets-by-location")
 //    public List<Pet> findPetsByLocation(){

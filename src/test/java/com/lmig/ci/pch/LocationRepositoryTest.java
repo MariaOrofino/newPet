@@ -44,6 +44,7 @@ public class LocationRepositoryTest {
 		locationRepository.save(location);
 		Assert.assertTrue(location.getLocId() != null);
 
+
 	}
 }
 
