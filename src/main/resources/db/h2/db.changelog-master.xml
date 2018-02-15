@@ -19,8 +19,7 @@
 			(
 			PET_TYPE_ID INT NOT NULL AUTO_INCREMENT,
 			PET_SPEC VARCHAR(45) NOT NULL,
-			DROP_DOWN_IND INT NULL,
-			PRIMARY KEY (PET_TYPE_ID)
+			DROP_DOWN_IND BOOLEAN NULL,
 			)
 		</sql>
 	</changeSet>
@@ -106,6 +105,23 @@
 			PRIMARY KEY (PET_ID)
 			)
 		</sql>
+	</changeSet>
+	
+	<changeSet id="9" author="aleitao">
+	<sql>
+	insert into PCH.PET_TYPE values (0, 'Dog', true),
+								    (1, 'Cat', true),
+								    (2, 'Reptile', true),
+							        (3, 'Farm Animal', false),
+									(4, 'Bird', true),
+									(5, 'Other', true);							  
+	</sql>	
+	</changeSet>
+	
+	<changeSet id="10" author="aleitao">
+	<sql>
+	insert into PCH.PET_STATUS values (0, 'LOST'), (1, 'FOUND'), (2, 'SIGHTED'), (3, 'RETURNED');							  
+	</sql>	
 	</changeSet>
 	
 	<!-- this will not stay...just a way to get an easy set of data in for swagger -->
