@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import com.lmig.ci.pch.domain.Location;
 import com.lmig.ci.pch.domain.Pet;
 import com.lmig.ci.pch.domain.User;
+import com.lmig.ci.pch.repository.LocationRepository;
 import com.lmig.ci.pch.repository.PetRepository;
 import com.lmig.ci.pch.repository.PetTypeRepository;
 import com.lmig.ci.pch.repository.UserRepository;
@@ -34,6 +35,9 @@ public class DatabaseServiceImpl implements DatabaseService {
 
     @Autowired
     private UserRepository userRepository;
+    
+    @Autowired
+    private LocationRepository locationRepository;
 
     // TODO add methods
 
