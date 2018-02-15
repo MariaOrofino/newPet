@@ -9,6 +9,7 @@ package com.lmig.ci.pch.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.lmig.ci.pch.domain.Location;
+import com.lmig.ci.pch.domain.Pet;
 
 
 
@@ -18,4 +19,5 @@ import com.lmig.ci.pch.domain.Location;
  */
 public interface LocationRepository extends JpaRepository<Location, Integer> {
 
+//    Location findByPet(Pet petId);
 }

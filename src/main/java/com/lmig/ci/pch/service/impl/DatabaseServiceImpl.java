@@ -82,6 +82,15 @@ public class DatabaseServiceImpl implements DatabaseService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+    /* (non-Javadoc)
+     * @see com.lmig.ci.pch.service.DatabaseService#saveLocation(com.lmig.ci.pch.domain.Location)
+     */
+    @Override
+    public Location saveLocation(Location location) {
+        // TODO Auto-generated method stub
+        return null;
+    }
     
     
 

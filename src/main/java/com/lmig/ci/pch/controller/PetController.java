@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.lmig.ci.pch.domain.Location;
 import com.lmig.ci.pch.domain.Pet;
 import com.lmig.ci.pch.service.DatabaseService;
 
@@ -35,7 +36,7 @@ public class PetController {
     // TODO decide if you need a controller for each domain object
     // TODO have your methods here call your service which calls your dao
     @ApiOperation(value = "Save Pet", response = Pet.class)
-    @PostMapping(value = "/save", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/savePet", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public Pet createPet(@RequestBody Pet pet) {
         return databaseService.savePet(pet);
     }
@@ -46,11 +47,17 @@ public class PetController {
         return databaseService.findAllPets();
     }
     
+    @ApiOperation(value = "Save Location", response = Location.class)
+    @PostMapping(value = "/saveLocation", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Location saveLocation(@RequestBody Location location) {
+        return databaseService.saveLocation(location);
+    }
 //    TODO
     
 //    @ApiOperation(value = "Find Pets by location")
 //    @GetMapping(value="/find-pets-by-location")
 //    public List<Pet> findPetsByLocation(){
 //        return databaseService.findPetsByLocation();
-//    }
+    
 }
+    

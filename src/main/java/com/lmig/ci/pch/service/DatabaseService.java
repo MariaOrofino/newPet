@@ -20,6 +20,7 @@ public interface DatabaseService {
 
 	Pet savePet(Pet pet);
 	Pet findByPetChipTag(String petChipTag);
+	Location saveLocation(Location location);
 	List<Pet> findAllPets();
 	List<Location>findAllPetLocations();
 	

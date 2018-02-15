@@ -64,7 +64,7 @@
 		</sql>
 	</changeSet>	
 
-	<changeSet id="7" author="mari	aOrofino">
+	<changeSet id="7" author="mariaOrofino">
 		<sql>
 			CREATE TABLE IF NOT EXISTS PCH.PET_STATUS
 			(
@@ -95,10 +95,8 @@
 			PET_SIGHTED_DATE DATE NULL,
 			PET_TYPE_ID INT NOT NULL,
 			USER_ID INT NOT NULL,
-			LOC_ID INT NOT NULL,
 			PET_STATUS_ID INT NOT NULL,
-<!-- 			LOC_ID INT NOT NULL, -->
-<!-- 			USER_ID INT NOT NULL, -->
+ 			LOC_ID INT NOT NULL,
 			UNIQUE INDEX PET_CHIP_TAG_UNIQUE (PET_CHIP_TAG ASC),
 			UNIQUE INDEX PET_RABIES_TAG_UNIQUE (PET_RABIES_TAG ASC),
 <!--             foreign key (PET_STATUS_ID) references PET_STATUS(PET_STATUS_ID), -->
@@ -109,14 +107,14 @@
 	</changeSet>
 	
 	<!-- this will not stay...just a way to get an easy set of data in for swagger -->
-<!-- 	<changeSet id="9" author="tgelhar"> -->
-<!-- 		<sql> -->
-<!-- 			insert into PCH.PET_TYPE values (0,'dog', null); -->
-<!-- 			insert into PCH.PET_STATUS values(0,'test'); -->
-<!-- 			insert into PCH.USER values (0, 'test', 'test', 'test', 'wi', 'test', 'test', 'test', 'test', 'test', 'test', 'test'); -->
-<!-- 		</sql> -->
-<!-- 	</changeSet> -->
-<!-- 	<changeSet id="10" author="mariaOrofino">
+	<!-- <changeSet id="9" author="tgelhar">
+		<sql>
+			insert into PCH.PET_CITY values (0,'dog', null);
+			insert into PCH.PET_STATUS values(0,'test');
+			insert into PCH.USER values (0, 'test', 'test', 'test', 'wi', 'test', 'test', 'test', 'test', 'test', 'test', 'test');
+		</sql>
+	</changeSet> -->
+	<!-- <changeSet id="10" author="mariaOrofino">
 		<sql>
 			CREATE TABLE IF NOT EXISTS PCH.PET_HAS_USER
 			(
