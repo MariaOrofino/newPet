@@ -94,6 +94,7 @@ public class PetRepositoryTest {
 	 location.setLocDesc("the backyard");
 	 location.setLocState("NY");
 	 location.setLocInd("y");
+	 location.setLocName("locName");
 	 locationRepository.save(location);
 	 pet.setLocation(location);
 	
@@ -155,6 +156,7 @@ public class PetRepositoryTest {
 		location.setLocDesc("the backyard");
 		location.setLocState("NY");
 		location.setLocInd("y");
+		location.setLocName("locName");
 		locationRepository.save(location);
 		pet.setLocation(location);
 
@@ -193,6 +195,7 @@ public class PetRepositoryTest {
 		nothaLocation.setLocDesc("the backyard");
 		nothaLocation.setLocState("NY");
 		nothaLocation.setLocInd("y");
+		nothaLocation.setLocName("locName");
 		locationRepository.save(nothaLocation);
 		nothaPet.setLocation(nothaLocation);
 
