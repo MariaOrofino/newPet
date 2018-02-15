@@ -43,6 +43,10 @@ public class PetStatusRepositoryTest {
         petStatusRepository.save(petStatus);
 
         Assert.assertTrue(petStatus.getPetStatusId() != null);
+        
+        Assert.assertEquals(petStatus.getPetStatus(), "Lost");
+        
+        Assert.assertFalse(petStatus.getPetStatus() == "lost");
     }
 
 }
