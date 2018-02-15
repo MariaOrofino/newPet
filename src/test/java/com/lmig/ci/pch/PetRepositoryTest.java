@@ -94,6 +94,7 @@ public class PetRepositoryTest {
 	 location.setLocDesc("the backyard");
 	 location.setLocState("NY");
 	 location.setLocInd("y");
+	 location.setLocName("locName");
 	 locationRepository.save(location);
 	 pet.setLocation(location);
 	
@@ -114,6 +115,8 @@ public class PetRepositoryTest {
 	 // find a pet by chip tag and verify if it matches
 	 Pet foundPet = petRepository.findByPetChipTag("myChipTag");
 	 Assert.assertEquals(pet.getPetId(), foundPet.getPetId());
+	 
+	 
 	
 	 }
 
@@ -153,6 +156,7 @@ public class PetRepositoryTest {
 		location.setLocDesc("the backyard");
 		location.setLocState("NY");
 		location.setLocInd("y");
+		location.setLocName("locName");
 		locationRepository.save(location);
 		pet.setLocation(location);
 
@@ -191,6 +195,7 @@ public class PetRepositoryTest {
 		nothaLocation.setLocDesc("the backyard");
 		nothaLocation.setLocState("NY");
 		nothaLocation.setLocInd("y");
+		nothaLocation.setLocName("locName");
 		locationRepository.save(nothaLocation);
 		nothaPet.setLocation(nothaLocation);
 
@@ -215,9 +220,52 @@ public class PetRepositoryTest {
 
 		 
 	}
-	
+//	@Test
+//	public void updatePetTest() {
+//
+//		Pet pet = new Pet();
+//		pet.setPetName("Rover");
+//		pet.setPetDesc("Big black dog");
+//		pet.setPetChipTag("5678");
+//		pet.setPetSize("Large");
+//		pet.setPetColor("Black");
+//
+//		PetType petType = new PetType();
+//		petType.setPetSpecies("test");
+//		petTypeRepository.save(petType);
+//		pet.setPetType(petType);
+//
+//		User user = new User();
+//		user.setUserFirstName("Bill");
+//		user.setUserLastName("William");
+//		user.setUserLogin("PetLover");
+//		user.setUserState("ny");
+//		user.setUserMobile("5165551212");
+//		user.setUserEmail("petUser@petuser.com");
+//		user.setUserCity("New York");
+//		user.setUserZip("11050");
+//		userRepository.save(user);
+//		pet.setUser(user);
+//
+//		PetStatus petStatus = new PetStatus();
+//		petStatus.setPetStatus("Lost");
+//		petStatusRepository.save(petStatus);
+//		pet.setPetStatus(petStatus);
+//
+//		Location location = new Location();
+//		location.setLocDesc("the backyard");
+//		location.setLocState("NY");
+//		location.setLocInd("y");
+//		locationRepository.save(location);
+//		pet.setLocation(location);
+//
+//		petRepository.save(pet);
+//		
+//		 
+
 	
 }
+
 
 /*
  * todo update pet

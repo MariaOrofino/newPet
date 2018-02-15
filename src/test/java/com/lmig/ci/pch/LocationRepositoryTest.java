@@ -37,6 +37,7 @@ public class LocationRepositoryTest {
 		Location location = new Location();
 		location.setLocDesc("it's a great description");
 		location.setLocState("nh");
+		location.setLocName("locationName");
 		location.setLocInd("y");
 
 		Assert.assertTrue(location.getLocId() == null);
