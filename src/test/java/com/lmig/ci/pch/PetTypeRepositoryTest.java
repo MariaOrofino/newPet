@@ -36,7 +36,7 @@ public class PetTypeRepositoryTest {
     public void petTypeTest() {
         PetType petType = new PetType();
         petType.setPetSpecies("species");
-        petType.setOther(1);
+        petType.setDropDownInd(false);
 
         // check that we do not have an id set yet
         Assert.assertTrue(petType.getPetTypeId() == null);
@@ -45,6 +45,10 @@ public class PetTypeRepositoryTest {
 
         // check that what was saved got an id
         Assert.assertTrue(petType.getPetTypeId() != null);
+        
+        Assert.assertTrue(petType.getDropDownInd() == false);
+        
+        Assert.assertFalse(petType.getPetSpecies() == "Cat");
 
     }
 

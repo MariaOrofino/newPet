@@ -32,7 +32,7 @@ public class PetType {
 	private String petSpecies;
 	
 	@Column(name = "DROP_DOWN_IND")
-	private Integer other;
+	private Boolean dropDownInd;
 
 	/**
 	 * @return the petTypeId
@@ -42,8 +42,7 @@ public class PetType {
 	}
 
 	/**
-	 * @param petTypeId
-	 *            the petTypeId to set
+	 * @param petTypeId the petTypeId to set
 	 */
 	public void setPetTypeId(Integer petTypeId) {
 		this.petTypeId = petTypeId;
@@ -57,26 +56,24 @@ public class PetType {
 	}
 
 	/**
-	 * @param petSpecies
-	 *            the petSpecies to set
+	 * @param petSpecies the petSpecies to set
 	 */
 	public void setPetSpecies(String petSpecies) {
 		this.petSpecies = petSpecies;
 	}
 
 	/**
-	 * @return the other
+	 * @return the dropDownInd
 	 */
-	public Integer getOther() {
-		return other;
+	public Boolean getDropDownInd() {
+		return dropDownInd;
 	}
 
 	/**
-	 * @param other
-	 *            the other to set
+	 * @param dropDownInd the dropDownInd to set
 	 */
-	public void setOther(Integer other) {
-		this.other = other;
+	public void setDropDownInd(Boolean dropDownInd) {
+		this.dropDownInd = dropDownInd;
 	}
 
 	@Override
