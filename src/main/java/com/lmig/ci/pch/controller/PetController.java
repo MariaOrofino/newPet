@@ -52,7 +52,10 @@ public class PetController {
     public Location saveLocation(@RequestBody Location location) {
         return databaseService.saveLocation(location);
     }
-//    TODO
+
+//  TODO
+   
+//    TODO from bill for push
     
 // add pet type and pet status - jg
     
