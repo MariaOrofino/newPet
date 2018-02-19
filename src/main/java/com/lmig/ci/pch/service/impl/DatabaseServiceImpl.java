@@ -13,6 +13,8 @@ import org.springframework.stereotype.Service;
 
 import com.lmig.ci.pch.domain.Location;
 import com.lmig.ci.pch.domain.Pet;
+import com.lmig.ci.pch.domain.PetStatus;
+import com.lmig.ci.pch.domain.PetType;
 import com.lmig.ci.pch.domain.User;
 import com.lmig.ci.pch.repository.LocationRepository;
 import com.lmig.ci.pch.repository.PetRepository;
@@ -91,7 +93,26 @@ public class DatabaseServiceImpl implements DatabaseService {
         // TODO Auto-generated method stub
         return null;
     }
-    
-    
+
+	/* (non-Javadoc)
+	 * @see com.lmig.ci.pch.service.DatabaseService#selectPetType(com.lmig.ci.pch.domain.PetType)
+	 */
+	@Override
+	public PetType selectPetType(PetType petType) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.lmig.ci.pch.service.DatabaseService#selectPetStatus(com.lmig.ci.pch.domain.PetStatus)
+	 */
+	@Override
+	public PetStatus selectPetStatus(PetStatus petStatus) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	
 
 }
