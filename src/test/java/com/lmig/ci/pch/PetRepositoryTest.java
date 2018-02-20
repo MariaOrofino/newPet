@@ -6,6 +6,7 @@
 
 package com.lmig.ci.pch;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.aspectj.lang.annotation.Before;
@@ -96,7 +97,9 @@ public class PetRepositoryTest {
 	 location.setLocInd("y");
 	 location.setLocName("locName");
 	 locationRepository.save(location);
-	 pet.setLocation(location);
+	 List<Location> locations = new ArrayList<>();
+	 pet.setLocations(locations);
+//	 setLocation(location);
 	
 	
 	
@@ -158,7 +161,10 @@ public class PetRepositoryTest {
 		location.setLocInd("y");
 		location.setLocName("locName");
 		locationRepository.save(location);
-		pet.setLocation(location);
+		 List<Location> locations = new ArrayList<>();
+		 pet.setLocations(locations);
+		
+//		setLocation(location);
 
 		petRepository.save(pet);
 
@@ -197,9 +203,10 @@ public class PetRepositoryTest {
 		nothaLocation.setLocInd("y");
 		nothaLocation.setLocName("locName");
 		locationRepository.save(nothaLocation);
-		nothaPet.setLocation(nothaLocation);
+		 List<Location> nothaLocations = new ArrayList<>();
+		 pet.setLocations(nothaLocations);
 
-		petRepository.save(nothaPet);
+petRepository.save(nothaPet);
 
 		List<Pet> petList = petRepository.findAll();
 
