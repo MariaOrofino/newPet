@@ -10,6 +10,8 @@ import java.util.List;
 
 import com.lmig.ci.pch.domain.Location;
 import com.lmig.ci.pch.domain.Pet;
+import com.lmig.ci.pch.domain.PetStatus;
+import com.lmig.ci.pch.domain.PetType;
 import com.lmig.ci.pch.domain.User;
 
 /**
@@ -23,6 +25,8 @@ public interface DatabaseService {
 	Location saveLocation(Location location);
 	List<Pet> findAllPets();
 	List<Location>findAllPetLocations();
+	PetType selectPetType(PetType petType);
+	PetStatus selectPetStatus(PetStatus petStatus);
 	
 	void saveUser(User user);
 }

@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.lmig.ci.pch.domain.Location;
 import com.lmig.ci.pch.domain.Pet;
+import com.lmig.ci.pch.domain.PetStatus;
+import com.lmig.ci.pch.domain.PetType;
 import com.lmig.ci.pch.service.DatabaseService;
 
 import io.swagger.annotations.ApiOperation;
@@ -52,12 +54,24 @@ public class PetController {
     public Location saveLocation(@RequestBody Location location) {
         return databaseService.saveLocation(location);
     }
+    
+    @ApiOperation(value = "Pet Type", response = PetType.class)
+    @PostMapping(value = "/selectPetSpecies", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public PetType getPetSpecies(@RequestBody PetType petType) {
+        return databaseService.selectPetType(petType);
+    }
+    
+    @ApiOperation(value = "Pet Status", response = PetStatus.class)
+    @PostMapping(value = "/selectPetStatus", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public PetStatus getPetSpecies(@RequestBody PetStatus petStatus) {
+        return databaseService.selectPetStatus(petStatus);
+    }
 
 //  TODO
    
 //    TODO from bill for push
     
-// add pet type and pet status - jg
+
     
 //    @ApiOperation(value = "Find Pets by location")
 //    @GetMapping(value="/find-pets-by-location")
