@@ -6,9 +6,8 @@
 
 package com.lmig.ci.pch;
 
-import java.util.ArrayList;
-import java.util.List;
 
+import java.util.List;
 import org.aspectj.lang.annotation.Before;
 import org.junit.Assert;
 import org.junit.Test;
@@ -94,12 +93,10 @@ public class PetRepositoryTest {
 	 Location location = new Location();
 	 location.setLocDesc("the backyard");
 	 location.setLocState("NY");
-	 location.setLocInd("y");
 	 location.setLocName("locName");
+	 location.setLocInd("y");
 	 locationRepository.save(location);
-	 List<Location> locations = new ArrayList<>();
-	 pet.setLocations(locations);
-//	 setLocation(location);
+	 pet.setLocation(location);
 	
 	
 	
@@ -161,10 +158,7 @@ public class PetRepositoryTest {
 		location.setLocInd("y");
 		location.setLocName("locName");
 		locationRepository.save(location);
-		 List<Location> locations = new ArrayList<>();
-		 pet.setLocations(locations);
-		
-//		setLocation(location);
+		pet.setLocation(location);
 
 		petRepository.save(pet);
 
@@ -201,12 +195,11 @@ public class PetRepositoryTest {
 		nothaLocation.setLocDesc("the backyard");
 		nothaLocation.setLocState("NY");
 		nothaLocation.setLocInd("y");
-		nothaLocation.setLocName("locName");
+		nothaLocation.setLocName("nothaLocName");
 		locationRepository.save(nothaLocation);
-		 List<Location> nothaLocations = new ArrayList<>();
-		 pet.setLocations(nothaLocations);
+		nothaPet.setLocation(nothaLocation);
 
-petRepository.save(nothaPet);
+		petRepository.save(nothaPet);
 
 		List<Pet> petList = petRepository.findAll();
 
