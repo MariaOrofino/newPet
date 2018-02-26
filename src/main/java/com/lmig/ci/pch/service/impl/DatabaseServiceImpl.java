@@ -52,6 +52,11 @@ public class DatabaseServiceImpl implements DatabaseService {
     public Pet savePet(Pet pet) {
         return petRepository.save(pet);
     }
+    
+    @Override
+    public Location saveLocation(Location location) {
+        return locationRepository.save(location);
+    }
 
     @Override
     public void saveUser(User user) {
@@ -85,14 +90,6 @@ public class DatabaseServiceImpl implements DatabaseService {
 		return null;
 	}
 
-    /* (non-Javadoc)
-     * @see com.lmig.ci.pch.service.DatabaseService#saveLocation(com.lmig.ci.pch.domain.Location)
-     */
-    @Override
-    public Location saveLocation(Location location) {
-        // TODO Auto-generated method stub
-        return null;
-    }
 
 	/* (non-Javadoc)
 	 * @see com.lmig.ci.pch.service.DatabaseService#selectPetType(com.lmig.ci.pch.domain.PetType)
