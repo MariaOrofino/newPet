@@ -43,8 +43,7 @@ public class PetController {
         return databaseService.savePet(pet);
     }
     
-    @ApiOperation(value = "Find All Pets")
-    @GetMapping(value="/find-all-pets")
+    @ApiOperation(value = "Find All Pets")    @GetMapping(value="/find-all-pets")
     public List<Pet> findAllPets(){
         return databaseService.findAllPets();
     }

@@ -122,24 +122,6 @@
 	</sql>	
 	</changeSet>
 	
-	<!-- this will not stay...just a way to get an easy set of data in for swagger -->
-	<!-- <changeSet id="9" author="tgelhar">
-		<sql>
-			insert into PCH.PET_CITY values (0,'dog', null);
-			insert into PCH.PET_STATUS values(0,'test');
-			insert into PCH.USER values (0, 'test', 'test', 'test', 'wi', 'test', 'test', 'test', 'test', 'test', 'test', 'test');
-		</sql>
-	</changeSet> -->
-	<!-- <changeSet id="10" author="mariaOrofino">
-		<sql>
-			CREATE TABLE IF NOT EXISTS PCH.PET_HAS_USER
-			(
-			PET_ID INT NOT NULL,
-			PET_STATUS_ID INT NOT NULL,
-			USER_ID INT NOT NULL
-			)
-		</sql>
-	</changeSet> -->
 	
 	<changeSet id="11" author="aleitao">
 		<sql>
@@ -252,6 +234,24 @@
 	<changeSet id="18" author="aleitao">
 	<sql>
 	insert into PCH_TEST.PET_STATUS values (0, 'LOST'), (1, 'FOUND'), (2, 'SIGHTED'), (3, 'RETURNED');							  
+	</sql>	
+	</changeSet>
+	
+	<changeSet id="100" author="myakkey">
+	<sql>
+	insert into PCH.location values (0, '38.8977', '-77.0365', 'DogHOuse', 'where dogs get fleas', 'DC', 'Washington', '20500', 'y');							  
+	</sql>	
+	</changeSet>
+	
+	<changeSet id="101" author="myakkey">
+	<sql>
+	insert into PCH.USER values (0, 'Maria', 'Orofino', 'DogLover', 'NH', 'Rochester', '6032640999', 'maria.yakkey@libertymutual.com', 'test', 'test', 'password', '03867');							  
+	</sql>	
+	</changeSet>
+	
+	<changeSet id="102" author="myakkey">
+	<sql>
+	insert into PCH.pet values (0, 'Fido', '122121', '121212', 'A cute dog', 'Lab Mix', 'large', 'Black', 'test', '2018-02-26', '2018-02-26', '2018-02-26', '2018-02-26', '2018-02-26', '0', '0', '0', '0');							  
 	</sql>	
 	</changeSet>
 
